@@ -1,15 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
     <meta name="author" content="Devpriya Kulemannege">
-    <link rel="stylesheet" href="css/home.css">
-    <link rel="stylesheet" href="css/global.css">
-
-    <title>Zeroth LMS</title>
+    <link rel="stylesheet" href="css/global.css">    
+    <title>Programming Fundamentals</title>
 </head>
 <body>
-    <!--header section-->
+        <!--header section-->
     <header>
         <div class="header_btn_div">
             <a href="home.html">
@@ -98,29 +95,19 @@
                     >Research Gate</a>
                 </div>
             </div>
-        </div> 
-
-        <!--main content section-->
-        <div class="main_content">
-            <h1 class = "fix_font_fam">Welcome to Zeroth University LMS</h1>
-            <h3 class = "fix_font_fam">Your Material: </h3>
-
-            <div class="material_div">
-                <!--No. of courses will be dynamically generated from javascript-->
-            </div>
+        </div>
+        <!--MAIN CONTENT-->
+        <div  class="main_content">
+            <h2>Programming Fundamentals</h2>
+            
         </div>
 
-        <div class="annoucement_pane">
-            <h2 class = "fix_font_fam">Announcements</h2>
-            <div class="announce_box">
-                <img src="assets/handstogether.jpg" style="border-radius: 5px;">
-                <h3 style="margin-bottom: -10px;">University Activity Week</h3>
-                <p>University Activity Week will be held from March 11–15. Academic sessions will conclude by 1:00 PM during this period to allow student participation in scheduled activities.</p>
-            </div>
-        </div>
+
+
+
     </div>
 
-    <!--footer section-->
+        <!--footer section-->
     <footer>
         <div class="footer_div">
             <div class="triangle"> <!--float: left;--></div>
@@ -129,74 +116,4 @@
         </div>
     </footer>
 </body>
-<script>
-    //example object acting as dictionary
-    const courseData = [
-        { file: "Introduction to Python", course: "Programming Fundamentals" },
-        { file: "HTML Basics", course: "Web Development" },
-        { file: "Introduction to SQL", course: "Database Systems" },
-        { file: "Linear Algebra Basics", course: "Computational Mathematics" },
-    ];
-
-    const materialDiv = document.querySelector('.material_div');
-     // if statement to check if course data exists and show them 
-    if (courseData.length > 0) {
-        for (const course of courseData) {
-            const detailBox = `                <div class='detailBox'>
-                        <div>
-                            <img src="assets/pepicons-pop_file.png" height="40">
-                        </div>
-                        <div style="margin-left: 20px; margin-top: -20px;">
-                            <p class = "fix_font_fam" style="font-weight: bold;">${course['course']}</p>
-                            <p class = "fix_font_fam">${course['file']}</p>
-                        </div>
-                    </div>`;
-                
-            materialDiv.innerHTML += detailBox;
-        }
-    } else {
-        materialDiv.innerHTML = "<p style='font-family: Arial, Helvetica, sans-serif; margin-left:500px; margin-top:100px'>No materials available.</p>";
-    }
-
-    function showSignout(event) {
-        event.stopPropagation();
-
-        var navItem = event.target.closest('.login_div'); // position to be displayed 
-        var dropdown = navItem.querySelector('.dropdown-content'); // get css class for dropdown
-
-        var isAlreadyOpen = dropdown.style.display === 'block'; 
-
-        closeallDropdowns(); // close all dropdowns
-
-        if (!isAlreadyOpen) {
-            dropdown.style.display = 'block'; // display only when other dropdowns are closed 
-        }
-    }
-
-    function showOptions(event) {
-        event.stopPropagation();
-
-        var navItem = event.target.closest('.nav_item'); // position to be displayed 
-        var dropdown = navItem.querySelector('.dropdown-content'); // get css class for dropdown
-
-        var isAlreadyOpen = dropdown.style.display === 'block'; 
-
-        closeallDropdowns(); // close all dropdowns
-
-        if (!isAlreadyOpen) {
-            dropdown.style.display = 'block'; // display only when other dropdowns are closed 
-        }
-    }
-
-    function closeallDropdowns() {
-        var dropdowns = document.querySelectorAll('.dropdown-content');
-        dropdowns.forEach(function(d) {
-            d.style.display = 'none'; // set all dropdown options to hidden
-        });
-    }
-
-    window.onclick = function() {
-        closeallDropdowns();
-    };
-</script>
 </html>
