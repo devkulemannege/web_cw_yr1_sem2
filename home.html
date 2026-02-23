@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Devpriya Kulemannege">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/global.css">
+
+    <title>Zeroth University LMS</title>
+</head>
+<body>
+    <!--header section-->
+    <header>
+        <div class="header_btn_div">
+            <button id="header_btn" onclick="window.location.href='home.html'">Zeroth University LMS</button>
+        </div>
+        <div class="search_div">
+            <input type="text" id="search_bar" placeholder="Search Course...">
+        </div>
+
+        <div class="login_div">
+            <div class="notification_div">
+                <img id="notification_img" src="assets/iconamoon_notification-light.png" alt="notifications" height="20">
+            </div>
+            <a id=signin onclick="window.location.href='signin.html'" style="display: block;">Sign In</a>
+            <a class="userName" onclick="showSignout(event)" style="display: none;">Elias Vance</a>
+            <div id="signout" class="dropdown-content" style="height: 35px; margin-top: 25px; margin-left: -10px">
+                <a id="signout_link" href="">Sign Out</a><br>
+            </div>  
+        </div>
+    </header>
+
+    <div class="container">
+        <!--Side bar-->
+        <div class="sidebar_div">
+            <nav class="nav_bar">
+                <div class="nav_item">
+                    <button onclick="showOptions(event)" class="nav_buttons">course_name⮛</button>
+                    <div class="dropdown-content">
+                      <a href="#">Link 1</a><br>
+                      <a href="#">Link 2</a><br>
+                      <a href="#" class="nav_button">Link 3</a><br>
+                    </div>
+                </div>
+                <div class="nav_item">
+                    <button onclick="showOptions(event)" class="nav_buttons">course_name⮛</button>
+                    <div class="dropdown-content">
+                      <a href="#">Link 1</a><br>
+                      <a href="#">Link 2</a><br>
+                      <a href="#" class="nav_button">Link 3</a><br>
+                    </div>
+                </div>
+                <div class="nav_item">
+                    <button onclick="showOptions(event)" class="nav_buttons">course_name⮛</button>
+                    <div class="dropdown-content">
+                      <a href="#">Link 1</a><br>
+                      <a href="#">Link 2</a><br>
+                      <a href="#" class="nav_button">Link 3</a><br>
+                    </div>
+                </div>
+                <div class="nav_item">
+                    <button onclick="showOptions(event)" class="nav_buttons">course_name⮛</button>
+                    <div class="dropdown-content">
+                      <a href="#">Link 1</a><br>
+                      <a href="#">Link 2</a><br>
+                      <a href="#" class="nav_button">Link 3</a><br>
+                    </div>
+                </div>
+            </nav>
+            <div class="external_links">
+                <h4 class = "fix_font_fam">External Links</h4>
+                <div id='link1' class="ext_links">
+                    <img src="assets/Untitled.png" class="ext_link_imgs">
+                    <a class="ext_links" href="https://www.geeksforgeeks.org/" target="_blank"
+                    >GeekforGeeks</a>
+                </div>
+                <div id='link1' class="ext_links" style="margin-top: 10px;">
+                    <img src="assets/22.png" class="ext_link_imgs">
+                    <a class="ext_links" href="https://www.geeksforgeeks.org/" target="_blank"
+                    >W3Schools</a>
+                </div>
+                <div id='link1' class="ext_links" style="margin-top: 10px;">
+                    <img src="assets/Untitled.jpg" class="ext_link_imgs">
+                    <a class="ext_links" href="https://www.geeksforgeeks.org/" target="_blank"
+                    >Linkedin Learning</a>
+                </div>
+                <div id='link1' class="ext_links" style="margin-top: 10px;">
+                    <img src="assets/scholar.png" class="ext_link_imgs">
+                    <a class="ext_links" href="https://www.geeksforgeeks.org/" target="_blank"
+                    >Google Scholar</a>
+                </div>
+                <div id='link1' class="ext_links" style="margin-top: 10px;">
+                    <img src="assets/Ungatetitled.png" class="ext_link_imgs">
+                    <a class="ext_links" href="https://www.geeksforgeeks.org/" target="_blank"
+                    >Research Gate</a>
+                </div>
+            </div>
+        </div> 
+
+        <!--main content section-->
+        <div class="main_content">
+            <h1 class = "fix_font_fam">Welcome to Zeroth University LMS</h1>
+            <h3 class = "fix_font_fam">Your Material: </h3>
+
+            <div class="material_div">
+                <!--No. of courses will be dynamically generated from javascript-->
+            </div>
+        </div>
+
+        <div class="annoucement_pane">
+            <h2 class = "fix_font_fam">Announcements</h2>
+            <div class="announce_box">
+                <img src="assets/handstogether.jpg" style="border-radius: 5px;">
+                <h3 style="margin-bottom: -10px;">University Activity Week</h3>
+                <p>University Activity Week will be held from March 11–15. Academic sessions will conclude by 1:00 PM during this period to allow student participation in scheduled activities.</p>
+            </div>
+        </div>
+    </div>
+
+    <!--footer section-->
+    <footer>
+        <div class="footer_div">
+            <div class="triangle"> <!--float: left;--></div>
+            <p class="footer_rights" class = "fix_font_fam">&copy; 2024 Zeroth University. All rights reserved.</p>
+            <a class="footer_links" href="mailto:zerothuniversity@ac.uk">contact us</a>
+        </div>
+    </footer>
+</body>
+<script>
+    //example object acting as dictionary
+    const courseData = [
+        { file: "Introduction to Python", course: "Programming"},
+        { file: "Random Variables", course: "Mathematics"},
+        { file: "Intro to Data Structures", course: "Data Structures"},
+    ];
+
+    const materialDiv = document.querySelector('.material_div');
+     // if statement to check if course data exists and show them 
+    if (courseData.length > 0) {
+        for (const course of courseData) {
+            const detailBox = `                <div class='detailBox'>
+                        <div>
+                            <img src="assets/pepicons-pop_file.png" height="40">
+                        </div>
+                        <div style="margin-left: 20px; margin-top: -20px;">
+                            <p class = "fix_font_fam" style="font-weight: bold;">${course['course']}</p>
+                            <p class = "fix_font_fam">${course['file']}</p>
+                        </div>
+                    </div>`;
+                
+            materialDiv.innerHTML += detailBox;
+        }
+    } else {
+        materialDiv.innerHTML = "<p style='font-family: Arial, Helvetica, sans-serif; margin-left:500px; margin-top:100px'>No materials available.</p>";
+    }
+
+    function showSignout(event) {
+        event.stopPropagation();
+
+        var navItem = event.target.closest('.login_div'); // position to be displayed 
+        var dropdown = navItem.querySelector('.dropdown-content'); // get css class for dropdown
+
+        var isAlreadyOpen = dropdown.style.display === 'block'; 
+
+        closeallDropdowns(); // close all dropdowns
+
+        if (!isAlreadyOpen) {
+            dropdown.style.display = 'block'; // display only when other dropdowns are closed 
+        }
+    }
+
+    function showOptions(event) {
+        event.stopPropagation();
+
+        var navItem = event.target.closest('.nav_item'); // position to be displayed 
+        var dropdown = navItem.querySelector('.dropdown-content'); // get css class for dropdown
+
+        var isAlreadyOpen = dropdown.style.display === 'block'; 
+
+        closeallDropdowns(); // close all dropdowns
+
+        if (!isAlreadyOpen) {
+            dropdown.style.display = 'block'; // display only when other dropdowns are closed 
+        }
+    }
+
+    function closeallDropdowns() {
+        var dropdowns = document.querySelectorAll('.dropdown-content');
+        dropdowns.forEach(function(d) {
+            d.style.display = 'none'; // set all dropdown options to hidden
+        });
+    }
+
+    window.onclick = function() {
+        closeallDropdowns();
+    };
+</script>
+</html>
