@@ -68,8 +68,9 @@ header {
 }
 #search_bar {
     padding: 5px 20px;
-    border: 1px solid #30364F;
+    border: 1px solid #ACBAC4;
     background-color: #f9f9f9;
+    border-radius: 10px;
     height: 35px;
     width: 500px;             /* Define a reasonable width */
     box-sizing: border-box;
@@ -144,7 +145,7 @@ header {
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 }
 .dropdown-content a{
-    background-color: #bcb59c;
+    background-color: #cac3a9;
     border-bottom: 2px solid #a59f89;
     color: black;
     padding:10px;
@@ -153,6 +154,9 @@ header {
     display: block;
     font-size: 18px;
     font-family: Arial, Helvetica, sans-serif;
+}
+.dropdown-content a:hover{
+    background-color: #b6af96;
 }
 #signout_link{
     background-color: transparent;
@@ -195,6 +199,24 @@ header {
     font-size: small;
 }
 
+/*course detail pane*/
+.detail_pane {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 20px;
+    width: 300px;   
+}
+.detail_box{
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px; 
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 
 /*footer styling*/
 .footer_div{
@@ -204,7 +226,7 @@ header {
     padding: 10px 0;
     margin-top: 11px;
     margin-left: -10px;
-    padding-bottom: 32px;
+    padding-bottom: 23px;
     box-shadow: 8px -8px 10px -2px rgba(0, 0, 0, 0.1);
 }
 .footer_links{
