@@ -25,10 +25,10 @@
             <div class="notification_div">
                 <img id="notification_img" src="assets/iconamoon_notification-light.png" alt="notifications" height="20">
             </div>
-            <a id=signin onclick="window.location.href='signin.html'" style="display: block;">Sign In</a>
-            <a class="userName" onclick="showSignout(event)" style="display: none;">Elias Vance</a>
+            <a id=signin onclick="window.location.href='signin.html'" style="display: none;">Sign In</a>
+            <a class="userName" onclick="showSignout(event)" style="display: block;">Elias Vance</a>
             <div id="signout" class="dropdown-content" style="height: 35px; margin-top: 25px; margin-left: -10px">
-                <a id="signout_link" href="">Sign Out</a><br>
+                <a id="signout_link" onclick="signout()">Sign Out</a><br>
             </div>  
         </div>
     </header>
@@ -40,33 +40,36 @@
                 <div class="nav_item">
                     <button onclick="showOptions(event)" class="nav_buttons">Programming Fundamentals&nbsp⮛</button>
                     <div class="dropdown-content">
-                      <a href="programmingEnroll.html" style="border-bottom: 2px solid #b4ae97;">Enroll</a><br>
-                      <a href="programmingMaterial.html">Material</a><br>
-                      <a href="programmingLecturers.html">Lecturers</a><br>
+                        <a id="programmingEnroll" href="programmingEnroll.html" style="border-bottom: 2px solid #b4ae97;">Enroll</a><br>
+                        <a id="programmingMaterial" href="programmingMaterial.html">Material</a><br>
+                        <a id="programmingLecturers" href="programmingLecturers.html">Lecturers</a><br>
                     </div>
                 </div>
+            
                 <div class="nav_item">
                     <button onclick="showOptions(event)" class="nav_buttons">Web Development&nbsp⮛</button>
                     <div class="dropdown-content">
-                      <a href="#">Enroll</a><br>
-                      <a href="#">Material</a><br>
-                      <a href="#">Lecturers</a><br>
+                        <a id="webDevEnroll" href="webDevEnroll.html">Enroll</a><br>
+                        <a id="webDevMaterial" href="webDevMaterial.html">Material</a><br>
+                        <a id="webDevLecturers" href="webDevLecturers.html">Lecturers</a><br>
                     </div>
                 </div>
+            
                 <div class="nav_item">
                     <button onclick="showOptions(event)" class="nav_buttons">Database Systems&nbsp⮛</button>
                     <div class="dropdown-content">
-                      <a href="#">Enroll</a><br>
-                      <a href="#">Material</a><br>
-                      <a href="#">Lecturers</a><br>
+                        <a id="databaseEnroll" href="databaseEnroll.html">Enroll</a><br>
+                        <a id="databaseMaterial" href="databaseMaterial.html">Material</a><br>
+                        <a id="databaseLecturers" href="databaseLecturers.html">Lecturers</a><br>
                     </div>
                 </div>
+            
                 <div class="nav_item">
                     <button onclick="showOptions(event)" class="nav_buttons">Computational Mathematics&nbsp⮛</button>
                     <div class="dropdown-content">
-                      <a href="#">Enroll</a><br>
-                      <a href="#" style="border-bottom: 2px solid #b4ae97;">Material</a><br>
-                      <a href="#">Lecturers</a><br>
+                        <a id="mathEnroll" href="mathEnroll.html">Enroll</a><br>
+                        <a id="mathMaterial" href="mathMaterial.html" style="border-bottom: 2px solid #b4ae97;">Material</a><br>
+                        <a id="mathLecturers" href="mathLecturers.html">Lecturers</a><br>
                     </div>
                 </div>
             </nav>
@@ -128,75 +131,36 @@
             <a class="footer_links" href="mailto:zerothuniversity@ac.uk">contact us</a>
         </div>
     </footer>
+    <script src="js\checkForSignin.js"></script>
+    <script src="js\sidebarSignout.js"></script>
+    <script>
+        //example object acting as dictionary
+        const courseData = [
+            { file: "Introduction to Python", course: "Programming Fundamentals" },
+            { file: "HTML Basics", course: "Web Development" },
+            { file: "Introduction to SQL", course: "Database Systems" },
+            { file: "Linear Algebra Basics", course: "Computational Mathematics" },
+        ];
+    
+        const materialDiv = document.querySelector('.material_div');
+         // if statement to check if course data exists and show them 
+        if (courseData.length > 0) {
+            for (const course of courseData) {
+                const detailBox = `                <div class='detailBox'>
+                            <div>
+                                <img src="assets/pepicons-pop_file.png" height="40">
+                            </div>
+                            <div style="margin-left: 20px; margin-top: -20px;">
+                                <p class = "fix_font_fam" style="font-weight: bold;">${course['course']}</p>
+                                <p class = "fix_font_fam">${course['file']}</p>
+                            </div>
+                        </div>`;
+                    
+                materialDiv.innerHTML += detailBox;
+            }
+        } else {
+            materialDiv.innerHTML = "<p class='fix_font_fam' style='margin-left:360px; margin-top:150px; margin-bottom:218.5px'>No materials available.</p>";
+        }
+    </script>
 </body>
-<script>
-    //example object acting as dictionary
-    const courseData = [
-        { file: "Introduction to Python", course: "Programming Fundamentals" },
-        { file: "HTML Basics", course: "Web Development" },
-        { file: "Introduction to SQL", course: "Database Systems" },
-        { file: "Linear Algebra Basics", course: "Computational Mathematics" },
-    ];
-
-    const materialDiv = document.querySelector('.material_div');
-     // if statement to check if course data exists and show them 
-    if (courseData.length > 0) {
-        for (const course of courseData) {
-            const detailBox = `                <div class='detailBox'>
-                        <div>
-                            <img src="assets/pepicons-pop_file.png" height="40">
-                        </div>
-                        <div style="margin-left: 20px; margin-top: -20px;">
-                            <p class = "fix_font_fam" style="font-weight: bold;">${course['course']}</p>
-                            <p class = "fix_font_fam">${course['file']}</p>
-                        </div>
-                    </div>`;
-                
-            materialDiv.innerHTML += detailBox;
-        }
-    } else {
-        materialDiv.innerHTML = "<p class='fix_font_fam' style='margin-left:360px; margin-top:150px; margin-bottom:218.5px'>No materials available.</p>";
-    }
-
-    function showSignout(event) {
-        event.stopPropagation();
-
-        var navItem = event.target.closest('.login_div'); // position to be displayed 
-        var dropdown = navItem.querySelector('.dropdown-content'); // get css class for dropdown
-
-        var isAlreadyOpen = dropdown.style.display === 'block'; 
-
-        closeallDropdowns(); // close all dropdowns
-
-        if (!isAlreadyOpen) {
-            dropdown.style.display = 'block'; // display only when other dropdowns are closed 
-        }
-    }
-
-    function showOptions(event) {
-        event.stopPropagation();
-
-        var navItem = event.target.closest('.nav_item'); // position to be displayed 
-        var dropdown = navItem.querySelector('.dropdown-content'); // get css class for dropdown
-
-        var isAlreadyOpen = dropdown.style.display === 'block'; 
-
-        closeallDropdowns(); // close all dropdowns
-
-        if (!isAlreadyOpen) {
-            dropdown.style.display = 'block'; // display only when other dropdowns are closed 
-        }
-    }
-
-    function closeallDropdowns() {
-        var dropdowns = document.querySelectorAll('.dropdown-content');
-        dropdowns.forEach(function(d) {
-            d.style.display = 'none'; // set all dropdown options to hidden
-        });
-    }
-
-    window.onclick = function() {
-        closeallDropdowns();
-    };
-</script>
 </html>

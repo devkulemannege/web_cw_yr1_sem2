@@ -22,10 +22,10 @@
             <div class="notification_div">
                 <img id="notification_img" src="assets/iconamoon_notification-light.png" alt="notifications" height="20">
             </div>
-            <a id=signin onclick="window.location.href='signin.html'" style="display: block;">Sign In</a>
-            <a class="userName" onclick="showSignout(event)" style="display: none;">Elias Vance</a>
+            <a id=signin onclick="window.location.href='signin.html'" style="display: none;">Sign In</a>
+            <a class="userName" onclick="showSignout(event)" style="display: block;">Elias Vance</a>
             <div id="signout" class="dropdown-content" style="height: 35px; margin-top: 25px; margin-left: -10px">
-                <a id="signout_link" href="">Sign Out</a><br>
+                <a id="signout_link" onclick="signout()">Sign Out</a><br>
             </div>  
         </div>
     </header>
@@ -37,33 +37,36 @@
                 <div class="nav_item">
                     <button onclick="showOptions(event)" class="nav_buttons">Programming Fundamentals&nbsp⮛</button>
                     <div class="dropdown-content">
-                      <a href="programmingMaterial.html">Enroll</a><br>
-                      <a href="#">Material</a><br>
-                      <a href="#" class="nav_button">Lecturers</a><br>
+                        <a id="programmingEnroll" href="programmingEnroll.html" style="border-bottom: 2px solid #b4ae97;">Enroll</a><br>
+                        <a id="programmingMaterial" href="programmingMaterial.html">Material</a><br>
+                        <a id="programmingLecturers" href="programmingLecturers.html">Lecturers</a><br>
                     </div>
                 </div>
+            
                 <div class="nav_item">
                     <button onclick="showOptions(event)" class="nav_buttons">Web Development&nbsp⮛</button>
                     <div class="dropdown-content">
-                      <a href="#">Enroll</a><br>
-                      <a href="#">Material</a><br>
-                      <a href="#" class="nav_button">Lecturers</a><br>
+                        <a id="webDevEnroll" href="webDevEnroll.html">Enroll</a><br>
+                        <a id="webDevMaterial" href="webDevMaterial.html">Material</a><br>
+                        <a id="webDevLecturers" href="webDevLecturers.html">Lecturers</a><br>
                     </div>
                 </div>
+            
                 <div class="nav_item">
                     <button onclick="showOptions(event)" class="nav_buttons">Database Systems&nbsp⮛</button>
                     <div class="dropdown-content">
-                      <a href="#">Enroll</a><br>
-                      <a href="#">Material</a><br>
-                      <a href="#" class="nav_button">Lecturers</a><br>
+                        <a id="databaseEnroll" href="databaseEnroll.html">Enroll</a><br>
+                        <a id="databaseMaterial" href="databaseMaterial.html">Material</a><br>
+                        <a id="databaseLecturers" href="databaseLecturers.html">Lecturers</a><br>
                     </div>
                 </div>
+            
                 <div class="nav_item">
                     <button onclick="showOptions(event)" class="nav_buttons">Computational Mathematics&nbsp⮛</button>
                     <div class="dropdown-content">
-                      <a href="#">Enroll</a><br>
-                      <a href="#">Material</a><br>
-                      <a href="#" class="nav_button">Lecturers</a><br>
+                        <a id="mathEnroll" href="mathEnroll.html">Enroll</a><br>
+                        <a id="mathMaterial" href="mathMaterial.html" style="border-bottom: 2px solid #b4ae97;">Material</a><br>
+                        <a id="mathLecturers" href="mathLecturers.html">Lecturers</a><br>
                     </div>
                 </div>
             </nav>
@@ -125,7 +128,7 @@
             <a class="footer_links" href="mailto:zerothuniversity@ac.uk">contact us</a>
         </div>
     </footer>
-
-    
+    <script src="js\checkForSignin.js"></script>
+    <script src="js\sidebarSignout.js"></script>
 </body>
 </html>

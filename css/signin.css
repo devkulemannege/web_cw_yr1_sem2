@@ -35,3 +35,9 @@
     cursor: pointer;
     margin-top: 20px;
 }
+.error-text{
+    color: red;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: -5px;
+    display: none; /*will be auto set to block from javascript*/
+}

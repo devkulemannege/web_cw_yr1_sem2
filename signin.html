@@ -23,9 +23,11 @@
     <div class="center">
         <form class="signin_form" method="POST">
             <h2 class="fix_font_fam" style="color: black; margin-top: 5px;">Sign In</h2>
-            <input class="input_box" type="text" name="username" placeholder="Username"><br>
-            <input class="input_box" type="password" name="password" placeholder="Password"><br>
-            <button class="btn" type="submit">Sign In</button>
+            <p id="invalid" class="error-text">Invalid Credentials</p>
+            <p id="unfilled" class="error-text">Please fill All Fields</p>
+            <input class="input_box" id="emailBox" type="text" name="E-mail" placeholder="E-mail"><br>
+            <input class="input_box" id="pswBox" type="password" name="password" placeholder="Password"><br>
+            <button class="btn" type="submit" onclick="return validateSignin()">Sign In</button>
         </form>
     </div>
 
@@ -35,5 +37,6 @@
             <a class="footer_links" style="margin-left: 10px;" href="mailto:zerothuniversity@ac.uk">Contact Us</a>
         </div>
     </footer>
+    <script src="js\signin.js"></script>
 </body>
 </html>
