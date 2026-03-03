@@ -2,8 +2,8 @@
     // how to display options in navigation bar according to enrollment status of course
     
     var programStatus = sessionStorage.getItem("programmingStatus", "unenrolled")
-    var webStatusses = sessionStorage.getItem("webStatus", "unenrolled")
-    var databaseStatus = sessionStorage.getItem("databaseStatus", "unenrolled")
+    var webStatus = sessionStorage.getItem("webStatus", "unenrolled")
+    var dbStatus = sessionStorage.getItem("databaseStatus", "unenrolled")
     var mathStatus = sessionStorage.getItem("mathsStatus", "unenrolled")
 
     const optionP1 = document.getElementById("programmingMaterial");

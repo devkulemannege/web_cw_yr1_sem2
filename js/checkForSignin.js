@@ -8,3 +8,9 @@ window.onload = function checkIfSignedIn(){
         window.location.href = "signin.html";
     }
 }
+window.addEventListener("beforeunload", function() {
+    /**
+     * clear session data when website is closed
+     */
+    this.sessionStorage.clear();
+});

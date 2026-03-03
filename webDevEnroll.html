@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="author" content="Devpriya Kulemannege">
+    <link rel="stylesheet" href="css/enroll.css">
+    <link rel="stylesheet" href="css/global.css">
+    <title>Zeroth LMS | Sign In</title>
+</head>
+<body>
+    <header style="background-color: #E1D9BC; display: flex;justify-content: center;">
+        <div class="header_btn_div" style="box-shadow: none;">
+            <a href="home.html">
+                <img src="assets/logocrop.png" alt="Zeroth University LMS" height="70" width="300">
+            </a>"
+            <!--<button id="header_btn" onclick="window.location.href='home.html'">Zeroth University LMS</button>-->
+        </div>
+        <!--<div class="header_btn_div" style="box-shadow: none; margin-left: -5px;">
+        <button id="header_btn" onclick="window.location.href='home.html'" style="font-size: 1.6rem;">Zeroth University LMS</button>
+        </div>
+        <h2 class="fix_font_fam" style="margin-left: 610px; color: black; font-size: 2rem;"">Zeroth University LMS</h2>-->
+    </header>
+
+    <div class="center">
+        <form class="enroll_form" method="POST">
+            <h2 class="fix_font_fam" style="color: black; margin-top: 5px;">Enrollment Form</h2>
+            
+            <p class="form-subtitles" style="margin-left: -265px;">Personal Information</p>
+            <input class="input_box" type="text" name="firstName" placeholder="First Name"><br>
+            <input class="input_box" type="password" name="lastName" placeholder="Last Name"><br>
+            <input class="input_box" type="text" name="email" placeholder="University E-mail"><br>
+            <input class="input_box" type="phonenumber" name="number" placeholder="Phone Number"><br>
+            <label class="form-subtitles" style="margin-left: -330px; margin-bottom: 10px;">Date of Birth</label>
+            <input class="input_box" type="date" name="dob" placeholder="Date of Birth"><br>
+            <label class="form-subtitles" style="margin-left: -360px;">Gender</label>
+            <div class="multi-option-div">
+                <input id='radioinput' type="radio" name="gender" value="Male">
+                <label class="fix_font_fam" style="margin-left: 5px; margin-top: 2px;">Male</label>
+                <input id='radioinput' type="radio" name="gender" value="Female" style="margin-left: 60px;">
+                <label class="fix_font_fam" style="margin-left: 5px;margin-top: 2px;">Female</label>
+            </div>
+            <button class="btn" type="submit" onclick="return enroll()">Enroll</button>
+        </form>
+    </div>
+
+    <footer>
+        <div class="footer_div" style="margin-top: 210px;">
+            <p class="footer_rights" style="margin-left: 270px;">&copy; 2024 Zeroth University. All rights reserved.</p>
+            <a class="footer_links" style="margin-left: 10px;" href="mailto:zerothuniversity@ac.us">Contact Us</a>
+        </div>
+    </footer>
+    <script src="js\checkForSignin.js"></script>
+    <script>
+        function enroll() {
+            sessionStorage.setItem("webStatus", "enrolled");
+            window.location.href = "webDevMaterial.html";
+            return false;
+        } 
+    </script>
+</body>
+</html>
