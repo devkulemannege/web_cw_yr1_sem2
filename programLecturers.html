@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css\material.css">
     <link rel="stylesheet" href="css\global.css">
-    <link rel="stylesheet" href="css\home.css">
     <title>Zeroth LMS</title>
 </head>
 <body>
@@ -47,7 +47,7 @@
     <div class="main_container">
         <div class="navigation_pane">
             <h3 style="font-family: Arial, Helvetica, sans-serif; margin-left: 23px;">Our Courses&nbsp⮛</h3>
-            <a href="programOptions.html" class="course_btns" style="margin-top: -20px;">Programming Fundamentals</a>
+            <a href="programOptions.html" class="course_btns" style="margin-top: -20px; border: 5px solid #4d4d4d; box-shadow: 0 5px 10px rgba(0,0,0,0.4);">Programming Fundamentals</a>
             <a class="course_btns">Web Development</a>
             <a class="course_btns">Database systems</a>
             <a class="course_btns">Computational Mathematics</a>
@@ -78,26 +78,42 @@
         </div>
 
         <div class="main_content" style="margin-left: 330px;">
-            <h2>Welcome to Zeroth University LMS</h1>
-            <h3>Your Material: </h3>
+            <h2>Programming Fundamentals</h2>
+            <h3>Lecturers </h3>
             <div class="material_div">
                 <!--No. of courses will be dynamically generated from javascript-->
             </div>
         </div>
         
-        <div class="announcement_pane">
-            <h2 style="font-family: Arial, Helvetica, sans-serif; margin-left: 10px; margin-bottom: 0px;">Announcements</h2>
-            <div class="announcement">
-                <img class="announce_img" src="assets\handstogether.jpg">
-                <p style="font-family: Arial, Helvetica, sans-serif; font-weight: lighter; margin: 5px;">University Activity Week will be held from March 11–15. 
-                    Academic sessions will conclude by 1:00 PM during this period 
-                    to allow student participation in scheduled activities.</p>
+        <div class="announcement_pane"> <!--Details pane but uses the same styles as announcement in home.css-->
+            <div class="details">
+                <h2 id="details_head">Details</h2>
+                <p style="font-family: Arial, Helvetica, sans-serif; font-weight: lighter; margin: 5px;">
+                    The Programming Fundamentals course serves as an architectural blueprint for computer 
+                    science, focusing on universal logic rather than fleeting technologies. Students begin 
+                    by deconstructing complex problems into discrete algorithms and mastering 
+                    "machine-level" concepts like memory management and data types. As the curriculum 
+                    progresses, it transitions from basic control flow—such as conditional logic and 
+                    iteration—to the professional principles of modularity and scalability through the use 
+                    of functions and the "DRY" (Don't Repeat Yourself) philosophy. By exploring linear 
+                    data structures and rigorous debugging techniques, learners move beyond simple syntax 
+                    to achieve true computational literacy. Ultimately, the course equips students with 
+                    the logical rigor and technical vocabulary necessary to navigate the entire software 
+                    development lifecycle and master any modern framework.
+                </p>
             </div>
-            <div class="announcement">
-                <img class="announce_img" src="assets\main-tools.webp" style="height: 23vh;">
-                <p style="font-family: Arial, Helvetica, sans-serif; font-weight: lighter; margin: 5px;">We would like to inform all students that the LMS Portal will undergo scheduled maintenance on Sunday, 10th March 2026 from 12:00 AM to 4:00 AM.
-                    During this period, access to course materials, submissions, and online assessments may be temporarily unavailable.
-                    Please ensure that you complete any pending submissions before the maintenance window. <br><br>We apologize for the inconvenience and appreciate your understanding.</p>
+            <div class="details">
+                <h2 id="details_head">Learning Objectives</h2>
+                <ul style="font-family: Arial, Helvetica, sans-serif; font-weight: lighter; margin: 5px;"> 
+                    <li><strong>Algorithmic Logic:</strong> Deconstruct complex problems into step-by-step logical procedures.</li>
+                    <li><strong>Data Architecture:</strong> Master variables, memory allocation, and primitive data types.</li>
+                    <li><strong>Control Flow:</strong> Implement decision-making structures and branching boolean logic.</li>
+                    <li><strong>Iterative Optimization:</strong> Automate repetitive tasks using loops and data navigation.</li>
+                    <li><strong>Procedural Modularity:</strong> Organize code into reusable functions and defined parameters.</li>
+                    <li><strong>Collection Management:</strong> Store and manipulate datasets using arrays and linear lists.</li>
+                    <li><strong>Diagnostic Debugging:</strong> Trace execution and resolve logical or runtime errors.</li>
+                    <li><strong>Input/Output Systems:</strong> Capture user data and generate formatted program output.</li>
+                </ul>
             </div>
         </div>
     </div>
@@ -106,34 +122,5 @@
     <footer>
         <p id="footer_text">2024 Zeroth University. All rights reserved.</p>
     </footer>
-        <script>
-        //example object acting as dictionary
-        const courseData = [
-            { file: "Introduction to Python", course: "Programming Fundamentals" },
-            { file: "HTML Basics", course: "Web Development" },
-            { file: "Introduction to SQL", course: "Database Systems" },
-            { file: "Linear Algebra Basics", course: "Computational Mathematics" },
-        ];
-    
-        const materialDiv = document.querySelector('.material_div');
-         // if statement to check if course data exists and show them 
-        if (courseData.length > 0) {
-            for (const course of courseData) {
-                const detailBox = `                <div class='detailBox'>
-                            <div>
-                                <img src="assets/pepicons-pop_file.png" height="40">
-                            </div>
-                            <div style="margin-left: 20px; margin-top: -20px;">
-                                <p class = "fix_font_fam" style="font-weight: bold;">${course['course']}</p>
-                                <p class = "fix_font_fam">${course['file']}</p>
-                            </div>
-                        </div>`;
-                    
-                materialDiv.innerHTML += detailBox;
-            }
-        } else {
-            materialDiv.innerHTML = "<p class='fix_font_fam' style='margin-left:360px; margin-top:150px; margin-bottom:218.5px'>No materials available.</p>";
-        }
-    </script>
 </body>
 </html>

@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css\enroll.css">
     <link rel="stylesheet" href="css\global.css">
-    <link rel="stylesheet" href="css\home.css">
-    <title>Zeroth LMS</title>
+    <title>Programming Fundamentals</title>
 </head>
 <body>
     <!-- header section -->
@@ -47,7 +47,7 @@
     <div class="main_container">
         <div class="navigation_pane">
             <h3 style="font-family: Arial, Helvetica, sans-serif; margin-left: 23px;">Our Courses&nbsp⮛</h3>
-            <a href="programOptions.html" class="course_btns" style="margin-top: -20px;">Programming Fundamentals</a>
+            <a class="course_btns" style="margin-top: -20px; border: 5px solid #4d4d4d; box-shadow: 0 5px 10px rgba(0,0,0,0.4);">Programming Fundamentals</a>
             <a class="course_btns">Web Development</a>
             <a class="course_btns">Database systems</a>
             <a class="course_btns">Computational Mathematics</a>
@@ -78,62 +78,32 @@
         </div>
 
         <div class="main_content" style="margin-left: 330px;">
-            <h2>Welcome to Zeroth University LMS</h1>
-            <h3>Your Material: </h3>
-            <div class="material_div">
-                <!--No. of courses will be dynamically generated from javascript-->
+            <div class="center">
+                <form class="enroll_form" method="POST">
+                    <h2 class="fix_font_fam" style="color: black; margin-top: 5px;">Enrollment Form</h2>
+                
+                    <p class="form-subtitles" style="margin-left: -265px;">Personal Information</p>
+                    <input class="input_box" type="text" name="firstName" placeholder="First Name"><br>
+                    <input class="input_box" type="password" name="lastName" placeholder="Last Name"><br>
+                    <input class="input_box" type="text" name="email" placeholder="University E-mail"><br>
+                    <input class="input_box" type="phonenumber" name="number" placeholder="Phone Number"><br>
+                    <label class="form-subtitles" style="margin-left: -330px; margin-bottom: 10px;">Date of Birth</label>
+                    <input class="input_box" type="date" name="dob" placeholder="Date of Birth"><br>
+                    <label class="form-subtitles" style="margin-left: -360px;">Gender</label>
+                    <div class="multi-option-div">
+                        <input id='radioinput' type="radio" name="gender" value="Male">
+                        <label class="fix_font_fam" style="margin-left: 5px; margin-top: 2px;">Male</label>
+                        <input id='radioinput' type="radio" name="gender" value="Female" style="margin-left: 60px;">
+                        <label class="fix_font_fam" style="margin-left: 5px;margin-top: 2px;">Female</label>
+                    </div>
+                    <button class="btn" type="submit" onclick="return enroll()">Enroll</button>
+                </form>
             </div>
         </div>
-        
-        <div class="announcement_pane">
-            <h2 style="font-family: Arial, Helvetica, sans-serif; margin-left: 10px; margin-bottom: 0px;">Announcements</h2>
-            <div class="announcement">
-                <img class="announce_img" src="assets\handstogether.jpg">
-                <p style="font-family: Arial, Helvetica, sans-serif; font-weight: lighter; margin: 5px;">University Activity Week will be held from March 11–15. 
-                    Academic sessions will conclude by 1:00 PM during this period 
-                    to allow student participation in scheduled activities.</p>
-            </div>
-            <div class="announcement">
-                <img class="announce_img" src="assets\main-tools.webp" style="height: 23vh;">
-                <p style="font-family: Arial, Helvetica, sans-serif; font-weight: lighter; margin: 5px;">We would like to inform all students that the LMS Portal will undergo scheduled maintenance on Sunday, 10th March 2026 from 12:00 AM to 4:00 AM.
-                    During this period, access to course materials, submissions, and online assessments may be temporarily unavailable.
-                    Please ensure that you complete any pending submissions before the maintenance window. <br><br>We apologize for the inconvenience and appreciate your understanding.</p>
-            </div>
-        </div>
-    </div>
 
     <!-- footer section -->
     <footer>
         <p id="footer_text">2024 Zeroth University. All rights reserved.</p>
     </footer>
-        <script>
-        //example object acting as dictionary
-        const courseData = [
-            { file: "Introduction to Python", course: "Programming Fundamentals" },
-            { file: "HTML Basics", course: "Web Development" },
-            { file: "Introduction to SQL", course: "Database Systems" },
-            { file: "Linear Algebra Basics", course: "Computational Mathematics" },
-        ];
-    
-        const materialDiv = document.querySelector('.material_div');
-         // if statement to check if course data exists and show them 
-        if (courseData.length > 0) {
-            for (const course of courseData) {
-                const detailBox = `                <div class='detailBox'>
-                            <div>
-                                <img src="assets/pepicons-pop_file.png" height="40">
-                            </div>
-                            <div style="margin-left: 20px; margin-top: -20px;">
-                                <p class = "fix_font_fam" style="font-weight: bold;">${course['course']}</p>
-                                <p class = "fix_font_fam">${course['file']}</p>
-                            </div>
-                        </div>`;
-                    
-                materialDiv.innerHTML += detailBox;
-            }
-        } else {
-            materialDiv.innerHTML = "<p class='fix_font_fam' style='margin-left:360px; margin-top:150px; margin-bottom:218.5px'>No materials available.</p>";
-        }
-    </script>
 </body>
 </html>
