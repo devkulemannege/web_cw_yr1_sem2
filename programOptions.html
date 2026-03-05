@@ -19,7 +19,7 @@
         </div>
         <div class="header_right_area">
             <img src="assets\Bell.png" alt="Notification Bell" height="20" width="20" style="margin-right: 10px;">
-            <a class="name_box">Elias Vance</a>
+            <a class="name_box" onclick="showOptions(event)">Elias Vance</a>
             <div class="dropdown-content">
                 <a id="acc_details"><b>
                 LMS Portal: <i>lms.zeroth.edu.us</i> <br>
@@ -34,7 +34,7 @@
                 Network Access Level: <i>Student Internal Network</i> <br>
                 </a><br>
                 <div class="signout">
-                    <a href="" style="color: red;">Sign Out</a>
+                    <a onclick="signout()" style="color: red;">Sign Out</a>
                 </div>
                 <div class="signout" style="margin-top: 8px;">
                     <a href="mailto:zerothuniversity@ac.uk" style="color: black;">Contact Us</a>
@@ -82,15 +82,15 @@
             <h3 style="margin-top: -10px;">Where do you Want to Go?</h3>
 
             <div class="options">
-                <div id="option1" class="option_box" onclick="window.location.href = 'programEnroll.html'">
+                <div id="pro_option1" class="option_box" onclick="window.location.href = 'programEnroll.html'">
                     <img class="option_img" src="assets\ic_outline-rocket-launch.png" style="margin-left: 20px;">
                     <a href="" style="font-size: 20px;">Enroll Now</a>
                 </div>
-                <div id="option2" class="option_box" onclick="window.location.href = 'programMaterial.html'">
+                <div id="pro_option2" class="option_box" onclick="window.location.href = 'programMaterial.html'">
                     <img class="option_img" src="assets\pepicons-pop_file.png">
                     <a href="" style="font-size: 20px;">Course Material</a>
                 </div>
-                <div id="option3" class="option_box" onclick="window.location.href = 'programLecturers.html'">
+                <div id="pro_option3" class="option_box" onclick="window.location.href = 'programLecturers.html'">
                     <img class="option_img" src="assets\ic_baseline-people-alt.png">
                     <a href="" style="font-size: 20px;">Lectuers</a>
                 </div>
@@ -101,5 +101,8 @@
     <footer>
         <p id="footer_text">2024 Zeroth University. All rights reserved.</p>
     </footer>
+    <script src="js\checkForSignin.js"></script>
+    <script src="js\sidebarSignout.js"></script>
+    <script src="js\showOptions.js"></script>
 </body>
 </html>

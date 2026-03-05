@@ -19,7 +19,7 @@
         </div>
         <div class="header_right_area">
             <img src="assets\Bell.png" alt="Notification Bell" height="20" width="20" style="margin-right: 10px;">
-            <a class="name_box">Elias Vance</a>
+            <a class="name_box" onclick="showOptions(event)">Elias Vance</a>
             <div class="dropdown-content">
                 <a id="acc_details"><b>
                 LMS Portal: <i>lms.zeroth.edu.us</i> <br>
@@ -34,7 +34,7 @@
                 Network Access Level: <i>Student Internal Network</i> <br>
                 </a><br>
                 <div class="signout">
-                    <a href="" style="color: red;">Sign Out</a>
+                    <a onclick="signout()" style="color: red;">Sign Out</a>
                 </div>
                 <div class="signout" style="margin-top: 8px;">
                     <a href="mailto:zerothuniversity@ac.uk" style="color: black;">Contact Us</a>
@@ -121,5 +121,7 @@
     <footer>
         <p id="footer_text">2024 Zeroth University. All rights reserved.</p>
     </footer>
+    <script src="js\checkForSignin.js"></script>
+    <script src="js\sidebarSignout.js"></script>
 </body>
 </html>
