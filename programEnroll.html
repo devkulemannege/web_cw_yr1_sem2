@@ -86,10 +86,12 @@
                     <input id="Fname" class="input_box" type="text" name="firstName" placeholder="First Name"><br>
                     <input id="Lname" class="input_box" type="text" name="lastName" placeholder="Last Name"><br>
                     <input id="email" class="input_box" type="text" name="email" placeholder="University E-mail"><br>
-                    <!--
+
                     <div class="email_warning">
-                        <p id="unfilled" class="error-text" style="display: flex;">Note: Currently Logged in Account WILL NOT receive access to course as it is different from enrolling email</p>
-                    </div>-->
+                        <p class="email_warn_text" class="error-text">
+                            Currently logged in account Will Not receive access to course as it is different from enrolling email
+                        </p>
+                    </div>
 
                     <input id="num" class="input_box" type="phonenumber" name="number" placeholder="Phone Number"><br>
 
@@ -106,7 +108,7 @@
                     
                     <label class="form-subtitles" style="margin-left: -305px; margin-top: 15px;">Payment Method</label>
                     <select id="paymentMethod" class="input_box">
-                        <option value="">Select Payment Method</option>
+                        <option value="">-- Select Payment Method --</option>
                         <option value="Monthly">Monthly</option>
                         <option value="End of Semester">End of Semester</option>
                         <option value="Quarterly">Quarterly</option>
@@ -125,5 +127,21 @@
     <script src="js\checkForSignin.js"></script>
     <script src="js\sidebarSignout.js"></script>
     <script src="js\form.js"></script>
+    <script>
+        const universityEmail = "elias.8645@zeroth.edu.us";
+
+        // Get elements
+        const emailInput = document.getElementById("email");
+        const emailWarning = document.querySelector(".email_warn_text");
+
+        // Live check as user types
+        emailInput.addEventListener("input", () => {
+            if (emailInput.value !== universityEmail && emailInput.value !== "" && emailInput.value.includes("zeroth.edu.us")) {
+                emailWarning.style.display = "flex"; // show warning
+            } else {
+                emailWarning.style.display = "none"; // hide warning
+            }
+        });
+    </script>
 </body>
 </html>

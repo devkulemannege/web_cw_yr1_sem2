@@ -23,12 +23,9 @@ function enroll() {
     ) {
         errorTextUnfilled.style.display = "flex";
         return false;
-    } else if (email !== "elias.8645@zeroth.edu.us"){
-        alert("Currently Logged in Account WILL NOT receive access to course as it is different from enrolling email")
-        window.location.href = "home.html";
+    } else {
+        sessionStorage.setItem("programmingStatus", "enrolled");
+        window.location.href = "programMaterial.html";
         return false;
     }
-    
-    sessionStorage.setItem("programmingStatus", "enrolled");
-    window.location.href = "programMaterial.html";
 } 

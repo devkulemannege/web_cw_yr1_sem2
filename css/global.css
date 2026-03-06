@@ -157,12 +157,6 @@ a[href]{
     margin-top: 15px;
     font-family: Arial, Helvetica, sans-serif;
 }
-.material_div{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 50vh;
-}
 .no_material{
     font-family: Arial, Helvetica, sans-serif;
 }
