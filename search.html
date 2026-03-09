@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css\options.css">
     <link rel="stylesheet" href="css\global.css">
-    <title>Computational Mathematics</title>
+    <link rel="stylesheet" href="css\home.css">
+    <title>Zeroth LMS</title>
 </head>
 <body>
     <!-- header section -->
@@ -47,10 +47,10 @@
     <div class="main_container">
         <div class="navigation_pane">
             <h3 style="font-family: Arial, Helvetica, sans-serif; margin-left: 23px;">Our Courses&nbsp⮛</h3>
-            <a href="programOptions.html" class="course_btns" style="margin-top: -10px;">Programming Fundamentals</a>
+            <a href="programOptions.html" class="course_btns" style="margin-top: -20px;">Programming Fundamentals</a>
             <a href="webDevOptions.html" class="course_btns">Web Development</a>
             <a href="databaseOptions.html" class="course_btns">Database systems</a>
-            <a class="course_btns" style="margin-top: 0px; border: 5px solid #4d4d4d; box-shadow: 0 5px 10px rgba(0,0,0,0.4);">Computational Mathematics</a>
+            <a href="mathOptions.html" class="course_btns">Computational Mathematics</a>
 
             <div class="externals">
                 <h4 id="externals_heading">External Links</h4>
@@ -78,24 +78,12 @@
         </div>
 
         <div class="main_content" style="margin-left: 330px;">
-            <h1>Programming Fundamentals</h1>
-            <h3 style="margin-top: -10px;">Where do you Want to Go?</h3>
-
-            <div class="options">
-                <div id="math_option1" class="option_box" onclick="window.location.href = 'mathEnroll.html'">
-                    <img class="option_img" src="assets\ic_outline-rocket-launch.png" style="margin-left: 20px;">
-                    <a href="" style="font-size: 20px;">Enroll Now</a>
-                </div>
-                <div id="math_option2" class="option_box" onclick="window.location.href = 'mathMaterial.html'">
-                    <img class="option_img" src="assets\pepicons-pop_file.png">
-                    <a href="" style="font-size: 20px;">Course Material</a>
-                </div>
-                <div id="math_option3" class="option_box" onclick="window.location.href = 'mathLecturers.html'">
-                    <img class="option_img" src="assets\ic_baseline-people-alt.png">
-                    <a href="" style="font-size: 20px;">Lectuers</a>
-                </div>
+            <h3>Search Results:</h3>
+            <div class="material_div">
+                <!-- show material based on search-->
             </div>
         </div>
+    </div>
 
     <!-- footer section -->
     <footer>
@@ -103,6 +91,34 @@
     </footer>
     <script src="js\checkForSignin.js"></script>
     <script src="js\sidebarSignout.js"></script>
-    <script src="js\mathShowOptions.js"></script>
+    <script>
+        //example object acting as dictionary
+        const courseData = [/*
+            { file: "Introduction to Python", course: "Programming Fundamentals" },
+            { file: "HTML Basics", course: "Web Development" },
+            { file: "Introduction to SQL", course: "Database Systems" },
+            { file: "Linear Algebra Basics", course: "Computational Mathematics" },*/
+        ];
+    
+        const materialDiv = document.querySelector('.material_div');
+         // if statement to check if course data exists and show them 
+        if (courseData.length > 0) {
+            for (const course of courseData) {
+                const detailBox = `                <div class='detailBox'>
+                            <div>
+                                <img src="assets/pepicons-pop_file.png" height="40">
+                            </div>
+                            <div style="margin-left: 20px; margin-top: -20px;">
+                                <p class = "fix_font_fam" style="font-weight: bold;">${course['course']}</p>
+                                <p class = "fix_font_fam">${course['file']}</p>
+                            </div>
+                        </div>`;
+                    
+                materialDiv.innerHTML += detailBox;
+            }
+        } else {
+            materialDiv.innerHTML = "<p class='no_material' style='display: flex;justify-content: center;align-items: center;height: 50vh;'>No materials available. Select a course to enroll.</p>";
+        }
+    </script>
 </body>
 </html>
