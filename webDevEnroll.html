@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css\material.css">
+    <link rel="stylesheet" href="css\enroll.css">
     <link rel="stylesheet" href="css\global.css">
-    <title>Zeroth LMS</title>
+    <title>Web Development</title>
 </head>
 <body>
     <!-- header section -->
@@ -47,8 +47,8 @@
     <div class="main_container">
         <div class="navigation_pane">
             <h3 style="font-family: Arial, Helvetica, sans-serif; margin-left: 23px;">Our Courses&nbsp⮛</h3>
-            <a href="programOptions.html" class="course_btns" style="margin-top: -20px; border: 5px solid #4d4d4d; box-shadow: 0 5px 10px rgba(0,0,0,0.4);">Programming Fundamentals</a>
-            <a href="webDevOptions.html" class="course_btns">Web Development</a>
+            <a href="programOptions.html" class="course_btns" style="margin-top: -10px;">Programming Fundamentals</a>
+            <a href="webDevOptions.html" class="course_btns" style="margin-top: 0px; border: 5px solid #4d4d4d; box-shadow: 0 5px 10px rgba(0,0,0,0.4);">Web Development</a>
             <a href="databaseOptions.html" class="course_btns">Database systems</a>
             <a href="mathOptions.html" class="course_btns">Computational Mathematics</a>
 
@@ -78,45 +78,47 @@
         </div>
 
         <div class="main_content" style="margin-left: 330px;">
-            <h2>Programming Fundamentals</h2>
-            <h3>Lecturers </h3>
-            <div class="material_div">
-                <!--No. of courses will be dynamically generated from javascript-->
+            <div class="center">
+                <form class="enroll_form">
+                    <h2 class="fix_font_fam" style="color: black; margin-top: 5px;">Enrollment Form</h2>
+                
+                    <p class="form-subtitles" style="margin-left: -265px;">Personal Information</p>
+                    <input id="Fname" class="input_box" type="text" name="firstName" placeholder="First Name"><br>
+                    <input id="Lname" class="input_box" type="text" name="lastName" placeholder="Last Name"><br>
+                    <input id="email" class="input_box" type="text" name="email" placeholder="University E-mail"><br>
+
+                    <div class="email_warning">
+                        <p class="email_warn_text" class="error-text">
+                            Currently logged in account Will Not receive access to course as it is different from enrolling email
+                        </p>
+                    </div>
+
+                    <input id="num" class="input_box" type="phonenumber" name="number" placeholder="Phone Number"><br>
+
+                    <label class="form-subtitles" style="margin-left: -330px; margin-bottom: 10px;">Date of Birth</label>
+                    <input id="dob" class="input_box" type="date" name="dob" placeholder="Date of Birth"><br>
+
+                    <label class="form-subtitles" style="margin-left: -360px;">Gender</label>
+                    <div class="multi-option-div">
+                        <input id='radioinput' type="radio" name="gender" value="Male">
+                        <label class="fix_font_fam" style="margin-left: 5px; margin-top: 2px;">Male</label>
+                        <input id='radioinput' type="radio" name="gender" value="Female" style="margin-left: 60px;">
+                        <label class="fix_font_fam" style="margin-left: 5px;margin-top: 2px;">Female</label>
+                    </div>
+                    
+                    <label class="form-subtitles" style="margin-left: -305px; margin-top: 15px;">Payment Method</label>
+                    <select id="paymentMethod" class="input_box">
+                        <option value="">-- Select Payment Method --</option>
+                        <option value="Monthly">Monthly</option>
+                        <option value="End of Semester">End of Semester</option>
+                        <option value="Quarterly">Quarterly</option>
+                        <option value="Yearly">Yearly</option>
+                    </select>
+                    <p id="unfilled" class="error-text">Please fill All Fields</p>
+                    <button class="btn" type="submit" onclick="return webEnroll()">Enroll</button>
+                </form>
             </div>
         </div>
-        
-        <div class="announcement_pane"> <!--Details pane but uses the same styles as announcement in home.css-->
-            <div class="details">
-                <h2 id="details_head">Details</h2>
-                <p style="font-family: Arial, Helvetica, sans-serif; font-weight: lighter; margin: 5px;">
-                    The Programming Fundamentals course serves as an architectural blueprint for computer 
-                    science, focusing on universal logic rather than fleeting technologies. Students begin 
-                    by deconstructing complex problems into discrete algorithms and mastering 
-                    "machine-level" concepts like memory management and data types. As the curriculum 
-                    progresses, it transitions from basic control flow—such as conditional logic and 
-                    iteration—to the professional principles of modularity and scalability through the use 
-                    of functions and the "DRY" (Don't Repeat Yourself) philosophy. By exploring linear 
-                    data structures and rigorous debugging techniques, learners move beyond simple syntax 
-                    to achieve true computational literacy. Ultimately, the course equips students with 
-                    the logical rigor and technical vocabulary necessary to navigate the entire software 
-                    development lifecycle and master any modern framework.
-                </p>
-            </div>
-            <div class="details">
-                <h2 id="details_head">Learning Objectives</h2>
-                <ul style="font-family: Arial, Helvetica, sans-serif; font-weight: lighter; margin: 5px;"> 
-                    <li><strong>Algorithmic Logic:</strong> Deconstruct complex problems into step-by-step logical procedures.</li>
-                    <li><strong>Data Architecture:</strong> Master variables, memory allocation, and primitive data types.</li>
-                    <li><strong>Control Flow:</strong> Implement decision-making structures and branching boolean logic.</li>
-                    <li><strong>Iterative Optimization:</strong> Automate repetitive tasks using loops and data navigation.</li>
-                    <li><strong>Procedural Modularity:</strong> Organize code into reusable functions and defined parameters.</li>
-                    <li><strong>Collection Management:</strong> Store and manipulate datasets using arrays and linear lists.</li>
-                    <li><strong>Diagnostic Debugging:</strong> Trace execution and resolve logical or runtime errors.</li>
-                    <li><strong>Input/Output Systems:</strong> Capture user data and generate formatted program output.</li>
-                </ul>
-            </div>
-        </div>
-    </div>
 
     <!-- footer section -->
     <footer>
@@ -124,5 +126,22 @@
     </footer>
     <script src="js\checkForSignin.js"></script>
     <script src="js\sidebarSignout.js"></script>
+    <script src="js\form.js"></script>
+    <script>
+        const universityEmail = "elias.8645@zeroth.edu.us";
+
+        // Get elements
+        const emailInput = document.getElementById("email");
+        const emailWarning = document.querySelector(".email_warn_text");
+
+        // Live check as user types
+        emailInput.addEventListener("input", () => {
+            if (emailInput.value !== universityEmail && emailInput.value !== "" && emailInput.value.includes("zeroth.edu.us")) {
+                emailWarning.style.display = "flex"; // show warning
+            } else {
+                emailWarning.style.display = "none"; // hide warning
+            }
+        });
+    </script>
 </body>
 </html>

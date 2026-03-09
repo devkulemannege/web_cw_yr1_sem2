@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css\material.css">
+    <link rel="stylesheet" href="css\options.css">
     <link rel="stylesheet" href="css\global.css">
-    <title>Zeroth LMS</title>
+    <title>Database Systems</title>
 </head>
 <body>
     <!-- header section -->
@@ -47,9 +47,9 @@
     <div class="main_container">
         <div class="navigation_pane">
             <h3 style="font-family: Arial, Helvetica, sans-serif; margin-left: 23px;">Our Courses&nbsp⮛</h3>
-            <a href="programOptions.html" class="course_btns" style="margin-top: -20px; border: 5px solid #4d4d4d; box-shadow: 0 5px 10px rgba(0,0,0,0.4);">Programming Fundamentals</a>
+            <a href="programOptions.html" class="course_btns" style="margin-top: -10px;">Programming Fundamentals</a>
             <a href="webDevOptions.html" class="course_btns">Web Development</a>
-            <a href="databaseOptions.html" class="course_btns">Database systems</a>
+            <a class="course_btns" style="margin-top: 0px; border: 5px solid #4d4d4d; box-shadow: 0 5px 10px rgba(0,0,0,0.4);">Database systems</a>
             <a href="mathOptions.html" class="course_btns">Computational Mathematics</a>
 
             <div class="externals">
@@ -78,45 +78,24 @@
         </div>
 
         <div class="main_content" style="margin-left: 330px;">
-            <h2>Programming Fundamentals</h2>
-            <h3>Lecturers </h3>
-            <div class="material_div">
-                <!--No. of courses will be dynamically generated from javascript-->
+            <h1>Database Systems</h1>
+            <h3 style="margin-top: -10px;">Where do you Want to Go?</h3>
+
+            <div class="options">
+                <div id="database_option1" class="option_box" onclick="window.location.href = 'databaseEnroll.html'">
+                    <img class="option_img" src="assets\ic_outline-rocket-launch.png" style="margin-left: 20px;">
+                    <a href="" style="font-size: 20px;">Enroll Now</a>
+                </div>
+                <div id="database_option2" class="option_box" onclick="window.location.href = 'databaseMaterial.html'">
+                    <img class="option_img" src="assets\pepicons-pop_file.png">
+                    <a href="" style="font-size: 20px;">Course Material</a>
+                </div>
+                <div id="database_option3" class="option_box" onclick="window.location.href = 'databaseLecturers.html'">
+                    <img class="option_img" src="assets\ic_baseline-people-alt.png">
+                    <a href="" style="font-size: 20px;">Lectuers</a>
+                </div>
             </div>
         </div>
-        
-        <div class="announcement_pane"> <!--Details pane but uses the same styles as announcement in home.css-->
-            <div class="details">
-                <h2 id="details_head">Details</h2>
-                <p style="font-family: Arial, Helvetica, sans-serif; font-weight: lighter; margin: 5px;">
-                    The Programming Fundamentals course serves as an architectural blueprint for computer 
-                    science, focusing on universal logic rather than fleeting technologies. Students begin 
-                    by deconstructing complex problems into discrete algorithms and mastering 
-                    "machine-level" concepts like memory management and data types. As the curriculum 
-                    progresses, it transitions from basic control flow—such as conditional logic and 
-                    iteration—to the professional principles of modularity and scalability through the use 
-                    of functions and the "DRY" (Don't Repeat Yourself) philosophy. By exploring linear 
-                    data structures and rigorous debugging techniques, learners move beyond simple syntax 
-                    to achieve true computational literacy. Ultimately, the course equips students with 
-                    the logical rigor and technical vocabulary necessary to navigate the entire software 
-                    development lifecycle and master any modern framework.
-                </p>
-            </div>
-            <div class="details">
-                <h2 id="details_head">Learning Objectives</h2>
-                <ul style="font-family: Arial, Helvetica, sans-serif; font-weight: lighter; margin: 5px;"> 
-                    <li><strong>Algorithmic Logic:</strong> Deconstruct complex problems into step-by-step logical procedures.</li>
-                    <li><strong>Data Architecture:</strong> Master variables, memory allocation, and primitive data types.</li>
-                    <li><strong>Control Flow:</strong> Implement decision-making structures and branching boolean logic.</li>
-                    <li><strong>Iterative Optimization:</strong> Automate repetitive tasks using loops and data navigation.</li>
-                    <li><strong>Procedural Modularity:</strong> Organize code into reusable functions and defined parameters.</li>
-                    <li><strong>Collection Management:</strong> Store and manipulate datasets using arrays and linear lists.</li>
-                    <li><strong>Diagnostic Debugging:</strong> Trace execution and resolve logical or runtime errors.</li>
-                    <li><strong>Input/Output Systems:</strong> Capture user data and generate formatted program output.</li>
-                </ul>
-            </div>
-        </div>
-    </div>
 
     <!-- footer section -->
     <footer>
@@ -124,5 +103,6 @@
     </footer>
     <script src="js\checkForSignin.js"></script>
     <script src="js\sidebarSignout.js"></script>
+    <script src="js\databaseShowOptions.js"></script>
 </body>
 </html>
