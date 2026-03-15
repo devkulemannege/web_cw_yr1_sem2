@@ -85,38 +85,13 @@
         </div>
         
         <div class="announcement_pane"> <!--Details pane but uses the same styles as announcement in home.css-->
-            <div class="details">
+            <div id="overall_details" class="details">
                 <h2 id="details_head">Details</h2>
-                <p style="font-family: Arial, Helvetica, sans-serif; font-weight: lighter; margin: 5px;">
-                    The Database Systems course offers an intensive exploration into the architecture and management of organized data within 
-                    the modern digital economy. In an era defined by "Big Data," the curriculum transitions from basic file storage to the 
-                    The Database Systems course provides an intensive dive into the architecture and management 
-                    of data within the modern digital economy. Transitioning from simple storage to 
-                    sophisticated relational and NoSQL models, students learn to translate complex business 
-                    needs into structured schemas using ER diagrams. By mastering normalization and SQL, 
-                    learners ensure data integrity while performing high-speed queries. The curriculum 
-                    emphasizes performance tuning through indexing and optimization, transforming 
-                    sluggish systems into high-efficiency engines. Critical "ACID" properties are integrated 
-                    to guarantee transactional reliability and data security. Students also explore 
-                    document-based stores, gaining versatility across the entire data lifecycle. By the 
-                    program's conclusion, participants evolve into "Data Architects" possessing the technical 
-                    rigor to design, secure, and tune massive databases. They emerge equipped to support 
-                    data-driven decision-making across any professional landscape in today's global 
-                    enterprise environment.
-                </p>
+                <!-- display course details -->
             </div>
-            <div class="details">
+            <div id="objectives" class="details">
                 <h2 id="details_head">Learning Objectives</h2>
-                <ul style="font-family: Arial, Helvetica, sans-serif; font-weight: lighter; margin: 5px;"> 
-                    <li><strong>Relational Modeling:</strong> Design complex schemas using ER Diagrams to map business logic.</li>
-                    <li><strong>Schema Normalization:</strong> Apply formal rules to eliminate redundancy and ensure structural integrity.</li>
-                    <li><strong>Advanced Querying:</strong> Master SQL for multi-table joins, filtering, and efficient data aggregation.</li>
-                    <li><strong>Transaction Management:</strong> Implement ACID properties for reliable processing and system recovery.</li>
-                    <li><strong>Performance Tuning:</strong> Optimize query speed and resource usage via indexing and plan analysis.</li>
-                    <li><strong>Security Protocols:</strong> Manage user permissions and encryption to protect against vulnerabilities.</li>
-                    <li><strong>NoSQL Exploration:</strong> Utilize document-based and distributed solutions for non-relational data.</li>
-                    <li><strong>Administrative Maintenance:</strong> Execute backup, recovery, and migration strategies for enterprise data.</li>
-                </ul>
+                <!-- display objectives -->
             </div>
         </div>
     </div>
@@ -127,5 +102,86 @@
     </footer>
     <script src="js\checkForSignin.js"></script>
     <script src="js\sidebarSignout.js"></script>
+
+    <!-- material display script -->
+    <script>
+        fetch("js/course_data.xml")
+        .then(response => response.text())
+        .then(data => {
+            const parser = new DOMParser();
+            const xml = parser.parseFromString(data, "application/xml");
+            const course = xml.querySelector('course[id="database"]'); // change id according to the course
+            const materials = course.getElementsByTagName("materials")[0].getElementsByTagName("material");
+
+            let courseData = [];
+            for (let i = 0; i < materials.length; i++) {
+            
+                const file = materials[i].getElementsByTagName("title")[0].textContent;
+                const uploadedBy = materials[i].getElementsByTagName("uploadedBy")[0].textContent;
+                const date = materials[i].getElementsByTagName("uploadDate")[0].textContent;
+            
+                courseData.push({
+                    file: file,
+                    uploadedBy: uploadedBy,
+                    date: date
+                });
+            }
+            // courseData[0].file
+
+            const materialDiv = document.querySelector('.material_div');
+             // if statement to check if course data exists and show them 
+            if (courseData.length > 0) {
+                for (const course of courseData) {
+                    const detailBox = `                <div class='detailBox' style="height:19vh">
+                                <div style="width:7vh">
+                                    <img src="assets/pepicons-pop_file.png" height="55">
+                                </div>
+                                <div style="margin-left: 20px; margin-top: -20px;">
+                                    <p class = "fix_font_fam">${course['file']}</p>
+                                    <p class = "fix_font_fam" style="font-weight:lighter; font-size:12px"><i>Uploaded Date: ${course['date']}</i></p>
+                                    <p class = "fix_font_fam" style="font-weight:lighter; font-size:12px"><i>Uploaded By: ${course['uploadedBy']}</i></p>
+                                    <p class = "fix_font_fam" style="font-weight:lighter; font-size:12px"><i>Click to Download</i></p>
+                                </div>
+                            </div>`;
+                        
+                    materialDiv.innerHTML += detailBox;
+                }
+            } else {
+                materialDiv.innerHTML = "<p class='no_material' style='display: flex;justify-content: center;align-items: center;height: 50vh;'>No materials available. Select a course to enroll.</p>";
+            }
+            });
+    </script>
+
+    <!-- course detail display & learning objectives script -->
+    <script>
+        fetch("js/course_data.xml")
+        .then(response => response.text())
+        .then(data => {
+            const parser = new DOMParser();
+            const xml = parser.parseFromString(data, "application/xml");
+            const course = xml.querySelector('course[id="database"]'); // change id according to the course
+            const details = course.getElementsByTagName("details")
+
+            const detailsDiv = document.querySelector('#overall_details');
+            const detail_box = `<p style="font-family: Arial, Helvetica, sans-serif; font-weight: lighter; margin: 5px; margin-top:-10px">
+                ${details[0].getElementsByTagName("about")[0].textContent}
+                </P>`
+            detailsDiv.innerHTML += detail_box;
+
+            const points = details[0].getElementsByTagName("learningObj")[0].getElementsByTagName("point")
+            const point_description = details[0].getElementsByTagName("learningObj")[0].getElementsByTagName("description")
+            const objectiveDiv = document.querySelector('#objectives');
+            
+            for (let i = 0; i < points.length; i++) {
+                const objective_box =`
+                <ul style="font-family: Arial, Helvetica, sans-serif; font-weight: lighter; margin: 5px;"> 
+                    <li><strong>${points[i].textContent}:</strong>${point_description[i].textContent}</li>                    
+                </ul>
+            `
+            objectiveDiv.innerHTML += objective_box;
+            }
+        });
+
+    </script>
 </body>
 </html>

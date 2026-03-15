@@ -4,6 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css\material.css">
     <link rel="stylesheet" href="css\global.css">
+    <link rel="stylesheet" href="css\lecturers.css">
     <title>Computational Mathematics</title>
 </head>
 <body>
@@ -86,37 +87,13 @@
         </div>
         
         <div class="announcement_pane"> <!--Details pane but uses the same styles as announcement in home.css-->
-            <div class="details">
+            <div id="overall_details" class="details">
                 <h2 id="details_head">Details</h2>
-                <p style="font-family: Arial, Helvetica, sans-serif; font-weight: lighter; margin: 5px;">
-                    The Computational Mathematics course serves as a rigorous bridge between abstract 
-                    mathematical theory and practical algorithmic execution on digital hardware. Immersing 
-                    students in numerical analysis, the curriculum explores how computers approximate 
-                    continuous mathematics using discrete logic and floating-point arithmetic. Learners 
-                    master linear algebra and matrix operations from a programmatic perspective, essential 
-                    for 3D graphics and machine learning models. The journey emphasizes iterative methods, 
-                    calculus-driven optimization, and discrete mathematics, forming the backbone of 
-                    cryptography and network routing. Students gain proficiency in complexity analysis and 
-                    Big O notation, learning to measure the efficiency of algorithms in terms of time and 
-                    memory. By the program's conclusion, participants achieve "Mathematical Literacy," 
-                    moving beyond rote memorization to develop a computational intuition for solving 
-                    high-stakes engineering problems. They emerge equipped with a robust toolkit of 
-                    numerical recipes, ready to implement precise mathematical modeling within any 
-                    advanced technical landscape.
-                </p>
+                <!-- display course details -->
             </div>
-            <div class="details">
+            <div id="objectives" class="details">
                 <h2 id="details_head">Learning Objectives</h2>
-                <ul style="font-family: Arial, Helvetica, sans-serif; font-weight: lighter; margin: 5px;"> 
-                    <li><strong>Numerical Precision:</strong> Manage floating-point arithmetic and inherent errors in machine representation.</li>
-                    <li><strong>Linear Algebra:</strong> Implement matrix transformations and systems of equations using optimized techniques.</li>
-                    <li><strong>Iterative Methods:</strong> Apply root-finding and optimization algorithms where direct algebra is insufficient.</li>
-                    <li><strong>Discrete Foundations:</strong> Master graph theory and logic essential for networking and cryptography.</li>
-                    <li><strong>Statistical Modeling:</strong> Utilize probability theory and distributions to analyze trends and make predictions.</li>
-                    <li><strong>Complexity Analysis:</strong> Use Big O notation to evaluate and compare the mathematical efficiency of algorithms.</li>
-                    <li><strong>Differential Approximation:</strong> Model physical systems using numerical differentiation and integration in code.</li>
-                    <li><strong>Algorithmic Proofs:</strong> Apply mathematical induction and formal logic to verify software correctness.</li>
-                </ul>
+                <!-- display objectives -->
             </div>
         </div>
     </div>
@@ -127,5 +104,59 @@
     </footer>
     <script src="js\checkForSignin.js"></script>
     <script src="js\sidebarSignout.js"></script>
+
+                <!-- material display script -->
+    <script>
+        fetch("js/course_data.xml")
+        .then(response => response.text())
+        .then(data => {
+            const parser = new DOMParser();
+            const xml = parser.parseFromString(data, "application/xml");
+            const course = xml.querySelector('course[id="maths"]'); // change id according to the course
+            const lecturers = course.getElementsByTagName("lecturers")[0].getElementsByTagName("lecturer");
+            
+            const lecturerDiv = document.querySelector('.lecturers_div');
+            for (let i=0; i < lecturers.length; i++){
+                lecturer_box = `
+                <div class="lecturer_box">
+                    <img class="lecturer_img" src="assets/iconamoon_profile-fill.png">
+                    <p class="lec_box_text">${lecturers[i].textContent}</p>
+                </div>
+                `
+                lecturerDiv.innerHTML += lecturer_box;
+            }
+        });
+    </script>
+
+    <!-- course detail display & learning objectives script -->
+    <script>
+        fetch("js/course_data.xml")
+        .then(response => response.text())
+        .then(data => {
+            const parser = new DOMParser();
+            const xml = parser.parseFromString(data, "application/xml");
+            const course = xml.querySelector('course[id="maths"]'); // change id according to the course
+            const details = course.getElementsByTagName("details")
+
+            const detailsDiv = document.querySelector('#overall_details');
+            const detail_box = `<p style="font-family: Arial, Helvetica, sans-serif; font-weight: lighter; margin: 5px; margin-top:-10px">
+                ${details[0].getElementsByTagName("about")[0].textContent}
+                </P>`
+            detailsDiv.innerHTML += detail_box;
+
+            const points = details[0].getElementsByTagName("learningObj")[0].getElementsByTagName("point")
+            const point_description = details[0].getElementsByTagName("learningObj")[0].getElementsByTagName("description")
+            const objectiveDiv = document.querySelector('#objectives');
+            
+            for (let i = 0; i < points.length; i++) {
+                const objective_box =`
+                <ul style="font-family: Arial, Helvetica, sans-serif; font-weight: lighter; margin: 5px;"> 
+                    <li><strong>${points[i].textContent}:</strong>${point_description[i].textContent}</li>                    
+                </ul>
+            `
+            objectiveDiv.innerHTML += objective_box;
+            }
+        });
+    </script>
 </body>
 </html>

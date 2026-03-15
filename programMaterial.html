@@ -111,14 +111,14 @@
             const parser = new DOMParser();
             const xml = parser.parseFromString(data, "application/xml");
             const course = xml.querySelector('course[id="programming"]'); // change id according to the course
-            const materials = course.getElementsByTagName("materials");
+            const materials = course.getElementsByTagName("materials")[0].getElementsByTagName("material");
 
             let courseData = [];
-            for (let i = 0; i < materials.length+1; i++) {
+            for (let i = 0; i < materials.length; i++) {
             
-                const file = materials[0].getElementsByTagName("title")[i].textContent;
-                const uploadedBy = materials[0].getElementsByTagName("uploadedBy")[i].textContent;
-                const date = materials[0].getElementsByTagName("uploadDate")[i].textContent;
+                const file = materials[i].getElementsByTagName("title")[0].textContent;
+                const uploadedBy = materials[i].getElementsByTagName("uploadedBy")[0].textContent;
+                const date = materials[i].getElementsByTagName("uploadDate")[0].textContent;
             
                 courseData.push({
                     file: file,
