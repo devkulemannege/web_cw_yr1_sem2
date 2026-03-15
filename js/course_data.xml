@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<courses>
+    <course id="programming">
+        <name>Programming Fundamentals</name>
+
+        <lecturers>
+            <lecturer>Dr. Silas Vane</lecturer>
+            <lecturer>Ms. Clara Halloway</lecturer>
+            <lecturer>Mr. Julian Graves</lecturer>
+        </lecturers>
+
+        <details>
+            <about>The Programming Fundamentals course serves as an architectural blueprint for computer science, focusing on universal logic rather than fleeting technologies. Students begin by deconstructing complex problems into discrete algorithms and mastering "machine-level" concepts like memory management and data types. As the curriculum progresses, it transitions from basic control flow—such as conditional logic and iteration—to the professional principles of modularity and scalability through the use of functions and the "DRY" (Don't Repeat Yourself) philosophy. By exploring linear data structures and rigorous debugging techniques, learners move beyond simple syntax to achieve true computational literacy. Ultimately, the course equips students with the logical rigor and technical vocabulary necessary to navigate the entire software development lifecycle and master any modern framework.</about>
+            <learningObj>
+                <point>Algorithmic Logic</point>
+                <point>Data Architecture</point>
+                <point>Control Flow</point>
+                <point>Iterative Optimization</point>
+                <point>Procedural Modularity</point>
+                <point>Collection Management</point>
+                <point>Diagnostic Debugging</point>
+                <point>Input/Output Systems</point>
+                
+                <description>Deconstruct complex problems into step-by-step logical procedures.</description>
+                <description>Master variables, memory allocation, and primitive data types.</description>
+                <description>Implement decision-making structures and branching boolean logic.</description>
+                <description>Automate repetitive tasks using loops and data navigation.</description>
+                <description>Organize code into reusable functions and defined parameters.</description>
+                <description>Store and manipulate datasets using arrays and linear lists.</description>
+                <description>Trace execution and resolve logical or runtime errors.</description>
+                <description>Capture user data and generate formatted program output.</description>
+            </learningObj>
+        </details>
+        
+        <materials>
+            <material>
+                <courseName>Programming Fundamentals</courseName>
+                <title>Introduction to Computational Methods</title>
+                <uploadDate>2026-01-10</uploadDate>
+                <uploadedBy>Silas Vane</uploadedBy>
+            </material>
+
+            <material>
+                <courseName>Programming Fundamentals</courseName>
+                <title>Matrix Operations Lecture</title>
+                <uploadDate>2026-01-15</uploadDate>
+                <uploadedBy>Ms. Clara Halloway</uploadedBy>
+            </material>
+        </materials>
+    </course>
+</courses>
