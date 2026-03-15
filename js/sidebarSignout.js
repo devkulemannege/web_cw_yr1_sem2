@@ -1,7 +1,10 @@
 const searchBox = document.getElementById("search_box");
 
-searchBox.addEventListener("keypress", function(event){
+searchBox.addEventListener("keypress", function(event){    
     if (event.key === 'Enter'){
+        const query = searchBox.value;
+        sessionStorage.setItem("searchQuery",query); // store query in sessionStorage
+
         window.location.href = "search.html";
     }
 });

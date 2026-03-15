@@ -15,7 +15,7 @@
             </a>
         </div>
         <div class="search_div">
-            <input type="search" id="search_box" placeholder="Search course materials...">
+            <input type="search" id="search_box" placeholder="Search by course name...">
         </div>
         <div class="header_right_area">
             <img src="assets\Bell.png" alt="Notification Bell" height="20" width="20" style="margin-right: 10px;">
@@ -132,7 +132,8 @@
              // if statement to check if course data exists and show them 
             if (courseData.length > 0) {
                 for (const course of courseData) {
-                    const detailBox = `                <div class='detailBox' style="height:19vh">
+                    const detailBox = `                
+                    <div class='detailBox' style="height:19vh;">
                                 <div style="width:7vh">
                                     <img src="assets/pepicons-pop_file.png" height="55">
                                 </div>
@@ -140,7 +141,7 @@
                                     <p class = "fix_font_fam">${course['file']}</p>
                                     <p class = "fix_font_fam" style="font-weight:lighter; font-size:12px"><i>Uploaded Date: ${course['date']}</i></p>
                                     <p class = "fix_font_fam" style="font-weight:lighter; font-size:12px"><i>Uploaded By: ${course['uploadedBy']}</i></p>
-                                    <p class = "fix_font_fam" style="font-weight:lighter; font-size:12px"><i>Click to Download</i></p>
+                                    <p class = "fix_font_fam" style="font-weight:lighter; font-size:12px;"><i>Click to Download</i></p>
                                 </div>
                             </div>`;
                         

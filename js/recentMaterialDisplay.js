@@ -66,7 +66,7 @@
                             <div style="width:7vh">
                                 <img src="assets/pepicons-pop_file.png" height="55">
                             </div>
-                            <div style="margin-left: 20px; margin-top: -20px;">
+                            <div style="margin-left: 20px; margin-top: -20px; margin-bottom: -20px;">
                                 <p class = "fix_font_fam" style="font-weight: bold;">${courseFiles[i][0]}</p>
                                 <p class = "fix_font_fam">${courseFiles[i][1]}</p>
                                 <p class = "fix_font_fam" style="font-weight:lighter; font-size:12px"><i>Click to Download</i></p>
