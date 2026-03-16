@@ -64,7 +64,7 @@
                     const detailBox = `
                         <div class='detailBox'>
                             <div style="width:7vh">
-                                <img src="assets/pepicons-pop_file.png" height="55">
+                                <img src="assets/pepicons-pop_file.png" height="55" alt="course_material_icon">
                             </div>
                             <div style="margin-left: 20px; margin-top: -20px; margin-bottom: -20px;">
                                 <p class = "fix_font_fam" style="font-weight: bold;">${courseFiles[i][0]}</p>
