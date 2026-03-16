@@ -58,39 +58,43 @@
             }
 
             // add enrolled course' files to home page
-            let query = sessionStorage.getItem("searchQuery")
-
+            let query = sessionStorage.getItem("searchQuery").toLowerCase();
             const materialDiv = document.querySelector('.material_div');
+
+            let found = false;
+
             if (courseFiles.length > 0) {
-                for (let i=0; i < courseFiles.length; i++){ // only show maximum 5 course files
-
+            
+                for (let i = 0; i < courseFiles.length; i++) {
+                
                     let searchCourseName = courseFiles[i][0].toLowerCase();
-
-                    if (query == ""){
-                        materialDiv.innerHTML = "<p class='no_material' style='display: flex;justify-content: center;align-items: center;height: 50vh;'>Please enter a keyword and try again.</p>";
-                        break;
-                    }
-
-                    if (searchCourseName.includes(query)){ // check if query matches course materials
+                
+                    if (searchCourseName.includes(query)) {
+                    
+                        found = true;
+                    
                         const detailBox = `
                             <div class='detailBox'>
                                 <div style="width:7vh">
                                     <img src="assets/pepicons-pop_file.png" height="55">
                                 </div>
                                 <div style="margin-left: 20px; margin-top: -20px; margin-bottom: -20px;">
-                                    <p class = "fix_font_fam" style="font-weight: bold;">${courseFiles[i][0]}</p>
-                                    <p class = "fix_font_fam">${courseFiles[i][1]}</p>
-                                    <p class = "fix_font_fam" style="font-weight:lighter; font-size:12px"><i>Click to Download</i></p>
+                                    <p class="fix_font_fam" style="font-weight: bold;">${courseFiles[i][0]}</p>
+                                    <p class="fix_font_fam">${courseFiles[i][1]}</p>
+                                    <p class="fix_font_fam" style="font-weight:lighter; font-size:12px"><i>Click to Download</i></p>
                                 </div>
                             </div>
                         `;
-
+                    
                         materialDiv.innerHTML += detailBox;
-                    } else {
-                        materialDiv.innerHTML = "<p class='no_material' style='display: flex;justify-content: center;align-items: center;height: 50vh;'>No matching material found.</p>";
                     }
                 }
+            
+                if (!found) {
+                    materialDiv.innerHTML = "<p class='no_material' style='display:flex;justify-content:center;align-items:center;height:50vh;'>No matching material found.</p>";
+                }
+            
             } else {
-                materialDiv.innerHTML = "<p class='no_material' style='display: flex;justify-content: center;align-items: center;height: 50vh;'>No materials available. Select a course to enroll.</p>";
+                materialDiv.innerHTML = "<p class='no_material' style='display:flex;justify-content:center;align-items:center;height:50vh;'>No materials available. Select a course to enroll.</p>";
             }
         });
