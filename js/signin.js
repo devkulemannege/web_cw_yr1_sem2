@@ -4,10 +4,11 @@ function validateSignin(){
     var errorTextUnfilled = document.getElementById("unfilled")
     var errorTextInvalid = document.getElementById("invalid")
 
+    // remove for presenting
     function forceSignin(){
-        let confirmValue = confirm(`IMPORTANT\n\nSign-in credentials have been documented in Page 3 of the Coursework Report. The reason for this approach has been justified & documented on the same page.\n
+        let confirmValue = confirm(`NOTE\n\nSign-in credentials have been documented in Page 3 of the Coursework Report. The reason for an approach without an option to sign-up has been justified & documented on the same page.\n
             E-mail: elias.8645@zeroth.edu.us
-            Password: elias8645\n\nPress "Ok" to force sign-in\nPress "Cancel" to close this box.`)
+            Password: elias8645\n\nClick "Ok" to force sign-in\nClick "Cancel" to close this box.`)
 
         if (confirmValue){
             //create session variables in browser 
@@ -25,7 +26,7 @@ function validateSignin(){
         errorTextInvalid.style.display = "none";
         errorTextUnfilled.style.display = "block";
 
-        forceSignin()
+        forceSignin() // remove for presenting
 
         return false;
     }
@@ -44,7 +45,7 @@ function validateSignin(){
         errorTextUnfilled.style.display = "none";
         errorTextInvalid.style.display = "block";
         
-        forceSignin()
+        forceSignin() // remove for presenting
 
         return false;
     }
