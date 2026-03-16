@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <courses>
+    <user>
+       <email>elias.8645@zeroth.edu.us</email>
+       <password>elias8645</password>
+    </user>
     <course id="programming">
         <name>Programming Fundamentals</name>
 

@@ -4,6 +4,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css\enroll.css">
     <link rel="stylesheet" href="css\global.css">
+    <style>
+        .error-text{
+            display: none;
+            margin-bottom: 2vh; 
+            margin-top: -1vh;
+            color: rgb(0, 126, 8);
+            font-weight: lighter;
+        }   
+    </style>
     <title>Web Development</title>
 </head>
 <body>
@@ -88,12 +97,21 @@
                     <input id="email" class="input_box" type="text" name="email" placeholder="University E-mail" aria-label="university email"><br>
 
                     <div class="email_warning">
-                        <p class="email_warn_text" class="error-text">
+                        <p id="email_warn_text" class="error-text">
                             Currently logged in account Will Not receive access to course as it is different from enrolling email
+                        </p>
+                        <p id="email_format_error" class="error-text" style="color: red; display: none;">
+                            Given e-mail format is incorrect
                         </p>
                     </div>
 
                     <input id="num" class="input_box" type="phonenumber" name="number" placeholder="Phone Number" aria-label="phone number"><br>
+
+                    <div class="email_warning">
+                        <p id="phone_length_warn" class="error-text" style="color: red; display: none;">
+                            Phone number should be minimum 10 characters & numerical.
+                        </p>
+                    </div>
 
                     <label class="form-subtitles" style="margin-left: -330px; margin-bottom: 10px;">Date of Birth</label>
                     <input id="dob" class="input_box" type="date" name="dob" placeholder="Date of Birth"><br>
@@ -128,19 +146,25 @@
     <script src="js\sidebarSignout.js"></script>
     <script src="js\form.js"></script>
     <script>
-        const universityEmail = "elias.8645@zeroth.edu.us";
+        fetch("js/course_data.xml")
+        .then(response => response.text())
+        .then(data => {
+            const xmlParser = new DOMParser();
+            const xml = xmlParser.parseFromString(data, "application/xml");
+            const universityEmail = xml.getElementsByTagName("email")[0].textContent
 
-        // Get elements
-        const emailInput = document.getElementById("email");
-        const emailWarning = document.querySelector(".email_warn_text");
+            // Get elements
+            const emailInput = document.getElementById("email");
+            const emailWarning = document.querySelector("#email_warn_text");
 
-        // Live check as user types
-        emailInput.addEventListener("input", () => {
-            if (emailInput.value !== universityEmail && emailInput.value !== "" && emailInput.value.includes("zeroth.edu.us")) {
-                emailWarning.style.display = "flex"; // show warning
-            } else {
-                emailWarning.style.display = "none"; // hide warning
-            }
+            // Live check as user types
+            emailInput.addEventListener("input", () => {
+                if (emailInput.value !== universityEmail && emailInput.value !== "" && emailInput.value.includes("zeroth.edu.us")) {
+                    emailWarning.style.display = "flex"; // show warning
+                } else {
+                    emailWarning.style.display = "none"; // hide warning
+                }
+            });
         });
     </script>
 </body>

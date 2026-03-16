@@ -109,10 +109,3 @@ select.input_box {
     font-family: Arial, Helvetica, sans-serif;
     display: none;
 }
-.email_warn_text{
-    display: none;
-    margin-bottom: 2vh; 
-    margin-top: -1vh;
-    color: rgb(0, 126, 8);
-    font-weight: lighter;
-}

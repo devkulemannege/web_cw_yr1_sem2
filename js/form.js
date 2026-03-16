@@ -11,6 +11,18 @@ function programEnroll() {
     const paymentMethod = document.getElementById("paymentMethod").value;
 
     var errorTextUnfilled = document.getElementById("unfilled")
+    var emailFormatError = document.getElementById("email_format_error");
+    var phoneLengthError = document.getElementById("phone_length_warn");
+
+    if (!(email.includes("zeroth.edu.us"))){
+        emailFormatError.style.display = "flex";
+        return false 
+    }
+
+    if (phoneNumber.length != 10 || !(/^\d+$/.test(phoneNumber))){ // regex validation
+        phoneLengthError.style.display = "flex";
+        return false
+    }
 
     if (
         firstName === "" ||
@@ -43,6 +55,18 @@ function webEnroll() {
     const paymentMethod = document.getElementById("paymentMethod").value;
 
     var errorTextUnfilled = document.getElementById("unfilled")
+    var emailFormatError = document.getElementById("email_format_error");
+    var phoneLengthError = document.getElementById("phone_length_warn");
+
+    if (!(email.includes("zeroth.edu.us"))){
+        emailFormatError.style.display = "flex";
+        return false 
+    }
+
+    if (phoneNumber.length != 10 || !(/^\d+$/.test(phoneNumber))){ // regex validation
+        phoneLengthError.style.display = "flex";
+        return false
+    }
 
     if (
         firstName === "" ||
@@ -75,6 +99,18 @@ function dbEnroll() {
     const paymentMethod = document.getElementById("paymentMethod").value;
 
     var errorTextUnfilled = document.getElementById("unfilled")
+    var emailFormatError = document.getElementById("email_format_error");
+    var phoneLengthError = document.getElementById("phone_length_warn");
+
+    if (!(email.includes("zeroth.edu.us"))){
+        emailFormatError.style.display = "flex";
+        return false 
+    }
+
+    if (phoneNumber.length != 10 || !(/^\d+$/.test(phoneNumber))){ // regex validation
+        phoneLengthError.style.display = "flex";
+        return false
+    }
 
     if (
         firstName === "" ||
@@ -107,6 +143,18 @@ function mathEnroll() {
     const paymentMethod = document.getElementById("paymentMethod").value;
 
     var errorTextUnfilled = document.getElementById("unfilled")
+    var emailFormatError = document.getElementById("email_format_error");
+    var phoneLengthError = document.getElementById("phone_length_warn");
+
+    if (!(email.includes("zeroth.edu.us"))){
+        emailFormatError.style.display = "flex";
+        return false 
+    }
+
+    if (phoneNumber.length != 10 || !(/^\d+$/.test(phoneNumber))){ // regex validation
+        phoneLengthError.style.display = "flex";
+        return false
+    }
 
     if (
         firstName === "" ||
