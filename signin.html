@@ -22,8 +22,8 @@
             <h2 class="form_head">Sign In</h2>
             <p id="invalid" class="error-text">Invalid Credentials</p>
             <p id="unfilled" class="error-text">Please fill All Fields</p>
-            <input class="input_box" id="emailBox" type="text" name="E-mail" placeholder="E-mail"><br>
-            <input class="input_box" id="pswBox" type="password" name="password" placeholder="Password"><br>
+            <input class="input_box" id="emailBox" type="text" name="E-mail" placeholder="E-mail" aria-label="email input"><br>
+            <input class="input_box" id="pswBox" type="password" name="password" placeholder="Password" aria-label="password input"><br>
             <a 
                 href="mailto:zerothuniversity@ac.uk" 
                 style="font-family: Arial, Helvetica, sans-serif;
@@ -35,6 +35,9 @@
             </a>
             <button class="btn" type="submit" onclick="return validateSignin()">Sign In</button>
         </form>
+        <div class="demo_info">
+            <p>Demo Account<br>Email: elias.8645@zeroth.edu.us<br>Password: elias8645</p>
+        </div>
     </div>
     <!-- footer section -->
     <footer>

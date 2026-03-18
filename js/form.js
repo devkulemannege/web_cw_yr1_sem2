@@ -17,11 +17,15 @@ function programEnroll() {
     if (!(email.includes("zeroth.edu.us"))){
         emailFormatError.style.display = "flex";
         return false 
+    } else {
+        emailFormatError.style.display = "none";
     }
 
     if (phoneNumber.length != 10 || !(/^\d+$/.test(phoneNumber))){ // regex validation
         phoneLengthError.style.display = "flex";
         return false
+    }else {
+        phoneLengthError.style.display = "none";
     }
 
     if (
@@ -36,8 +40,15 @@ function programEnroll() {
         errorTextUnfilled.style.display = "flex";
         return false;
     } else {
-        sessionStorage.setItem("programmingStatus", "enrolled");
-        window.location.href = "programMaterial.html";
+        const div = document.querySelector("#email_warn_text");
+        const displayStatus = window.getComputedStyle(div).display;
+
+        if (displayStatus === "none"){
+            sessionStorage.setItem("programmingStatus", "enrolled");
+            window.location.href = "programMaterial.html";
+        } else {
+            window.location.href = "home.html";
+        }
         return false;
     }
 } 
@@ -61,11 +72,15 @@ function webEnroll() {
     if (!(email.includes("zeroth.edu.us"))){
         emailFormatError.style.display = "flex";
         return false 
+    } else {
+        emailFormatError.style.display = "none";
     }
 
     if (phoneNumber.length != 10 || !(/^\d+$/.test(phoneNumber))){ // regex validation
         phoneLengthError.style.display = "flex";
         return false
+    }else {
+        phoneLengthError.style.display = "none";
     }
 
     if (
@@ -80,8 +95,15 @@ function webEnroll() {
         errorTextUnfilled.style.display = "flex";
         return false;
     } else {
-        sessionStorage.setItem("webStatus", "enrolled");
-        window.location.href = "webDevMaterial.html";
+        const div = document.querySelector("#email_warn_text");
+        const displayStatus = window.getComputedStyle(div).display;
+
+        if (displayStatus === "none"){
+            sessionStorage.setItem("webStatus", "enrolled");
+            window.location.href = "webDevMaterial.html";
+        } else {
+            window.location.href = "home.html";
+        }
         return false;
     }
 } 
@@ -105,11 +127,15 @@ function dbEnroll() {
     if (!(email.includes("zeroth.edu.us"))){
         emailFormatError.style.display = "flex";
         return false 
+    } else {
+        emailFormatError.style.display = "none";
     }
 
     if (phoneNumber.length != 10 || !(/^\d+$/.test(phoneNumber))){ // regex validation
         phoneLengthError.style.display = "flex";
         return false
+    }else {
+        phoneLengthError.style.display = "none";
     }
 
     if (
@@ -124,8 +150,15 @@ function dbEnroll() {
         errorTextUnfilled.style.display = "flex";
         return false;
     } else {
-        sessionStorage.setItem("databaseStatus", "enrolled");
-        window.location.href = "databaseMaterial.html";
+        const div = document.querySelector("#email_warn_text");
+        const displayStatus = window.getComputedStyle(div).display;
+
+        if (displayStatus === "none"){
+            sessionStorage.setItem("databaseStatus", "enrolled");
+            window.location.href = "databaseMaterial.html";
+        } else {
+            window.location.href = "home.html";
+        }
         return false;
     }
 } 
@@ -149,11 +182,15 @@ function mathEnroll() {
     if (!(email.includes("zeroth.edu.us"))){
         emailFormatError.style.display = "flex";
         return false 
+    } else {
+        emailFormatError.style.display = "none";
     }
 
     if (phoneNumber.length != 10 || !(/^\d+$/.test(phoneNumber))){ // regex validation
         phoneLengthError.style.display = "flex";
         return false
+    } else {
+        phoneLengthError.style.display = "none";
     }
 
     if (
@@ -168,8 +205,15 @@ function mathEnroll() {
         errorTextUnfilled.style.display = "flex";
         return false;
     } else {
-        sessionStorage.setItem("mathsStatus", "enrolled");
-        window.location.href = "mathMaterial.html";
+        const div = document.querySelector("#email_warn_text");
+        const displayStatus = window.getComputedStyle(div).display;
+
+        if (displayStatus === "none"){
+            sessionStorage.setItem("mathsStatus", "enrolled");
+            window.location.href = "mathMaterial.html";
+        } else {
+            window.location.href = "home.html";
+        }
         return false;
     }
 } 
