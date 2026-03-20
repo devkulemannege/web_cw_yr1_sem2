@@ -12,12 +12,12 @@ function validateSignin(){
     }
     if (email == "elias.8645@zeroth.edu.us" && pswBox == "elias8645"){
         
-        //create session variables in browser 
-        sessionStorage.setItem("accountStatus", "logged");
-        sessionStorage.setItem("webStatus", "unenrolled")
-        sessionStorage.setItem("programmingStatus", "unenrolled")
-        sessionStorage.setItem("databaseStatus", "unenrolled")
-        sessionStorage.setItem("mathsStatus", "unenrolled")
+        // check if variable exists. if not, create session variables in browser 
+        sessionStorage.setItem("accountStatus", sessionStorage.getItem("accountStatus") || "logged");
+        sessionStorage.setItem("webStatus", sessionStorage.getItem("webStatus") || "unenrolled");
+        sessionStorage.setItem("programmingStatus", sessionStorage.getItem("programmingStatus") || "unenrolled");
+        sessionStorage.setItem("databaseStatus", sessionStorage.getItem("databaseStatus") || "unenrolled");
+        sessionStorage.setItem("mathsStatus", sessionStorage.getItem("mathsStatus") || "unenrolled");
 
         window.location.href = "home.html";
         return false;
