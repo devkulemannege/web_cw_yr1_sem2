@@ -24,7 +24,7 @@ function showOptions(event) {
     }
 }
 function signout() {
-    sessionStorage.clear();
+    // sessionStorage.clear();
     window.location.href = "signin.html";
 }
 
