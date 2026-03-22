@@ -12,11 +12,11 @@
     <header>
         <div class="logo_btn">
             <a href="home.html" style="margin-left: 20px;">
-                <img src="assets\2lmsLogo.png" alt="Zeroth University LMS Logo" height="50" width="250">
+                <img src="assets\2lmsLogo.png" alt="Zeroth University LMS Logo" height="50" width="250" title="Go to homepage">
             </a>
         </div>
         <div class="search_div">
-            <input type="search" id="search_box" placeholder="Search by course name...">
+            <input type="search" id="search_box" placeholder="Search by course name..." aria-label="search materials by course">
         </div>
         <div class="header_right_area">
             <img src="assets\Bell.png" alt="Notification Bell" height="20" width="20" style="margin-right: 10px;">
@@ -47,6 +47,7 @@
     <!-- main section -->
     <div class="main_container">
         <div class="navigation_pane">
+            <a href="home.html" class="home_button">Go to Home</a>
             <h3 style="font-family: Arial, Helvetica, sans-serif; margin-left: 23px;">Our Courses&nbsp⮛</h3>
             <a href="programOptions.html" class="course_btns" style="margin-top: -10px;">Programming Fundamentals</a>
             <a href="webDevOptions.html" class="course_btns">Web Development</a>
@@ -119,7 +120,7 @@
             for (let i=0; i < lecturers.length; i++){
                 lecturer_box = `
                 <div class="lecturer_box">
-                    <img class="lecturer_img" src="assets/iconamoon_profile-fill.png">
+                    <img class="lecturer_img" src="assets/iconamoon_profile-fill.png"alt="lecturer profile picture">
                     <p class="lec_box_text">${lecturers[i].textContent}</p>
                 </div>
                 `

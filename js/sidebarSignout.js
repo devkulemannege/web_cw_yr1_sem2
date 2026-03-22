@@ -10,7 +10,7 @@ searchBox.addEventListener("keypress", function(event){
 });
     
 function showOptions(event) {
-    event.stopPropagation();
+    event.stopPropagation(); // stops showing multiple elements
 
     var navItem = event.target.closest('.header_right_area'); // position to be displayed 
     var dropdown = navItem.querySelector('.dropdown-content'); // get css class for dropdown
@@ -24,7 +24,7 @@ function showOptions(event) {
     }
 }
 function signout() {
-    // sessionStorage.clear();
+    sessionStorage.setItem("accountStatus", "unlogged");
     window.location.href = "signin.html";
 }
 

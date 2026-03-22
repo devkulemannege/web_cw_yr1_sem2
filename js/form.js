@@ -92,13 +92,15 @@ function webEnroll() {
         gender === null ||
         paymentMethod === ""
     ) {
-        errorTextUnfilled.style.display = "flex";
+        // make "fill all fields" warning visible 
+        errorTextUnfilled.style.display = "flex"; 
         return false;
     } else {
         const div = document.querySelector("#email_warn_text");
-        const displayStatus = window.getComputedStyle(div).display;
+        const displayStatus = window.getComputedStyle(div).display; 
 
-        if (displayStatus === "none"){
+        // prevent logged acc enrolling if email is different
+        if (displayStatus === "none"){ 
             sessionStorage.setItem("webStatus", "enrolled");
             window.location.href = "webDevMaterial.html";
         } else {

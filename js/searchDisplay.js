@@ -67,9 +67,9 @@
             
                 for (let i = 0; i < courseFiles.length; i++) {
                 
-                    let searchCourseName = courseFiles[i][0].toLowerCase();
+                    let searchCourseName = courseFiles[i][0].toLowerCase(); // get course name
                 
-                    if (searchCourseName.includes(query)) {
+                    if (searchCourseName.includes(query)) { // check every course name if query matches
                     
                         found = true;
                     
