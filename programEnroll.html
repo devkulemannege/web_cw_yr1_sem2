@@ -153,13 +153,13 @@
         .then(data => {
             const xmlParser = new DOMParser();
             const xml = xmlParser.parseFromString(data, "application/xml");
-            const universityEmail = xml.getElementsByTagName("email")[0].textContent
+            const universityEmail = xml.getElementsByTagName("email")[0].textContent // get value within email tag
 
-            // Get elements
+            // Get values within the html elemends
             const emailInput = document.getElementById("email");
             const emailWarning = document.querySelector("#email_warn_text");
 
-            // Live check as user types
+            // constantly check as the user enters
             emailInput.addEventListener("input", () => {
                 if (emailInput.value !== universityEmail && emailInput.value !== "" && emailInput.value.includes("zeroth.edu.us")) {
                     emailWarning.style.display = "flex"; // show warning

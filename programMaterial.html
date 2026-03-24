@@ -113,11 +113,13 @@
             const parser = new DOMParser();
             const xml = parser.parseFromString(data, "application/xml");
             const course = xml.querySelector('course[id="programming"]'); // change id according to the course
+            // get values within the "materials" tag in XML
             const materials = course.getElementsByTagName("materials")[0].getElementsByTagName("material");
 
-            let courseData = [];
+            let courseData = []; // initialize temporary array
+            // add all courses within XML to remporary array
             for (let i = 0; i < materials.length; i++) {
-            
+                // below is course data
                 const file = materials[i].getElementsByTagName("title")[0].textContent;
                 const uploadedBy = materials[i].getElementsByTagName("uploadedBy")[0].textContent;
                 const date = materials[i].getElementsByTagName("uploadDate")[0].textContent;
@@ -130,7 +132,7 @@
             }
             // courseData[0].file
 
-            const materialDiv = document.querySelector('.material_div');
+            const materialDiv = document.querySelector('.material_div'); // retreive the div to show materials
              // if statement to check if course data exists and show them 
             if (courseData.length > 0) {
                 for (const course of courseData) {
@@ -147,9 +149,9 @@
                                 </div>
                             </div>`;
                         
-                    materialDiv.innerHTML += detailBox;
+                    materialDiv.innerHTML += detailBox; // add the above HTML code into the div 
                 }
-            } else {
+            } else { // if there are no materials to display, show "No materials available. Select a course to enroll."
                 materialDiv.innerHTML = "<p class='no_material' style='display: flex;justify-content: center;align-items: center;height: 50vh;'>No materials available. Select a course to enroll.</p>";
             }
             });

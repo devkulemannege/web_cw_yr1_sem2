@@ -14,21 +14,21 @@ function programEnroll() {
     var emailFormatError = document.getElementById("email_format_error");
     var phoneLengthError = document.getElementById("phone_length_warn");
 
-    if (!(email.includes("zeroth.edu.us"))){
-        emailFormatError.style.display = "flex";
+    if (!(email.includes("zeroth.edu.us"))){ // validate email format
+        emailFormatError.style.display = "flex"; // display warning
         return false 
     } else {
-        emailFormatError.style.display = "none";
+        emailFormatError.style.display = "none"; // hide warning
     }
 
-    if (phoneNumber.length != 10 || !(/^\d+$/.test(phoneNumber))){ // regex validation
-        phoneLengthError.style.display = "flex";
+    if (phoneNumber.length != 10 || !(/^\d+$/.test(phoneNumber))){ // check if there's non-numeric
+        phoneLengthError.style.display = "flex"; // displat warning
         return false
     }else {
-        phoneLengthError.style.display = "none";
+        phoneLengthError.style.display = "none"; // hide warning
     }
 
-    if (
+    if ( // check if any fields are empty
         firstName === "" ||
         lastName === "" ||
         email === "" ||
@@ -37,13 +37,13 @@ function programEnroll() {
         gender === null ||
         paymentMethod === ""
     ) {
-        errorTextUnfilled.style.display = "flex";
+        errorTextUnfilled.style.display = "flex"; // display warning
         return false;
     } else {
-        const div = document.querySelector("#email_warn_text");
-        const displayStatus = window.getComputedStyle(div).display;
+        const div = document.querySelector("#email_warn_text"); // get warning text element id
+        const displayStatus = window.getComputedStyle(div).display; // get "display" value of element
 
-        if (displayStatus === "none"){
+        if (displayStatus === "none"){ // proceed if there's no warning, which means no problems 
             sessionStorage.setItem("programmingStatus", "enrolled");
             window.location.href = "programMaterial.html";
         } else {
